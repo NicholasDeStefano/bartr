@@ -6,14 +6,32 @@ app.config(function ($routeProvider) {
   $routeProvider
     .when('/',
       {
-        templateUrl:"views/partials/app.html",
+        templateUrl:"/views/partials/home.html",
         controller:"MainCtrl"
       }
     )
-    .when('/users',
+    .when('/login',
       {
-        templateUrl: "views/partials/users.html",
+        templateUrl:"/views/partials/login.html",
+        controller:"LoginCtrl"
+      }
+    )
+    .when('/signup',
+      {
+        templateUrl:"/views/partials/signup.html",
+        controller:"SignupCtrl"
+      }
+    )
+    .when('/profile',
+      {
+        templateUrl: "views/partials/profile.html",
         controller: "UsersCtrl"        
+      }
+    )
+    .when('/app',
+      {
+        templateUrl: "views/partials/app.html",
+        controller: "MainCtrl"        
       }
     )
 })
