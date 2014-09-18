@@ -1,11 +1,7 @@
-app.provider('User', function() {
-  this.$get = ['$resource', function($resource) {
-    var User = $resource('http://localhost:1529/api/users/:_id', {}, {
-      update: {
-        method: 'PUT'
+app.factory('User', function UserFactory($resource) {
+    return $resource("/api/users/:id", { id: '@id' },
+      {
+        'get': {method: 'GET', isArray:true}
       }
-    })
-
-    return User;
-  }]
+    );
 })

@@ -3,7 +3,7 @@ var mongoose = require('mongoose'),
     User = mongoose.model('User')
 
 exports.index = function (req, res) {
-  User.find(function (err, user) {
+  User.find(req.query, function (err, user) {
       if(err){
         console.log("ERROR ", err);
       }
