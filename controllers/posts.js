@@ -1,19 +1,27 @@
+var mongoose = require('mongoose'),
+    PostSchema = require('../models/post.js'),
+    Post = mongoose.model('Post')
+
 exports.index = function (req, res) {
+  Post.find(req.query).populate('user').exec(function (err, posts) {
+      if(err){
+        console.log("ERROR ", err);
+      }
+      res.send(posts);
+    })
+}
 
-  var posts = [
-    {
-      title: "Post1",
-      body: "filler text"
-    },
-    {
-      title: "Post2",
-      body: "filler text filler text"
-    },
-    {
-      title: "Post3",
-      body: "filler text filler text filler text"
-    }
-  ]
+exports.create = function (req, res) {
+  Post.create(req.body, function (err, post){
+    if(err) {
+      console.log(err);
+      return res.status(403); }
+    res.send({post: post});
+  });
+}
 
-  res.send({data:posts})
+exports.update = function (req, res) {
+  Post.findByIdAndUpdate(req.body._id, req.body, function (err, post) {
+    res.send({post: post});
+  });
 }

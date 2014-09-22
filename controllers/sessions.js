@@ -13,6 +13,7 @@ exports.login = function (req, res) {
 }
 
 exports.currentUser = function (req, res) {
+  // console.log("req", req);
   res.send(req.user);
 }
 

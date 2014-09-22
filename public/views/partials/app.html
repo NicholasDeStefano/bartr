@@ -1,2 +1,8 @@
-<h1>Hello {{user.local.email}} welcome to bartr!</h1>
-
+<div ng-repeat="post in posts">
+    <p>{{post.user.local.email}}</p>
+    <img ng-src="https://s3.amazonaws.com/bartr-imgs/s3UploadExample/{{post.imgRef}}" height="200px" width="200px">
+    <p>{{post.title}}</p>
+    <p>{{post.caption}}</p>
+    <a ng-click="sendBartr(post)">Bartr</a>
+    <span ng-click="addLike(post)">Like^</span> {{post.likes}}
+</div>

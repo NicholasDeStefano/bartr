@@ -8,12 +8,14 @@ module.exports = function(app, passport) {
   app.get('/api/users', users.index);
   app.post('/api/users', users.create);
   app.get('/api/users/:id', users.show);
-  
+
   app.get('/home', function(req, res) {
     res.send("hello world"); // load the index.jade file
   });
 
   var posts = require('../controllers/posts');
+  app.post('/api/posts', posts.create);
+  app.post('/api/posts/:id', posts.update);
 
   app.get('/api/app', isLoggedIn, posts.index);
 
@@ -23,6 +25,12 @@ module.exports = function(app, passport) {
     res.send('loggin in bitches', { message: req.flash('loginMessage') }); 
   });
 
+  // AWS 
+  var api = require('../controllers/api');
+  var aws = require('../controllers/aws');
+
+  app.get('/api/config', api.getClientConfig);
+  app.get('/api/s3Policy', aws.getS3Policy);
 
   app.get('/signup', function(req, res) {
 
@@ -33,9 +41,11 @@ module.exports = function(app, passport) {
   var sessions = require('../controllers/sessions');
   app.post('/signup', passport.authenticate('local-signup', { failureFlash : true }), sessions.signup);
   app.post('/login', passport.authenticate('local-login', { failureFlash : true }), sessions.login);
-
+  // app.get('/api/session', sessions.session);
   app.get('/profile', isLoggedIn, sessions.currentUser);
   app.get('/logout', sessions.logout);
+
+
 
 }
 

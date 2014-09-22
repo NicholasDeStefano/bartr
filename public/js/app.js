@@ -1,6 +1,6 @@
 'use strict';
 
-var app = angular.module('bartr', ['ngRoute', 'ngResource']);
+var app = angular.module('bartr', ['ngRoute', 'ngResource', 'angularFileUpload']);
 
 app.config(function ($routeProvider) {
   $routeProvider
@@ -32,6 +32,12 @@ app.config(function ($routeProvider) {
       {
         templateUrl: "views/partials/app.html",
         controller: "MainCtrl"        
+      }
+    )
+    .when('/posts',
+      {
+        templateUrl: "views/partials/posts.html",
+        controller: "PostsCtrl"
       }
     )
 })
