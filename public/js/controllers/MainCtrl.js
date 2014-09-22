@@ -16,28 +16,27 @@
           })
 
         $scope.addLike = function (post) {
-          if(post.likes.length > 0) {
-
-          
-          post.likes.forEach(function(like) {
-            if(like === $scope.user._id){
-              console.log("oh shit dude")
-              return;
-            } else {
-              post.likes.push($scope.user._id);
-              $http.post("/api/posts/:id", post)
-              .success(function (data) {
-                console.log("data returned", data);
-              })
+          var likes = post.likes;
+          var push = true;
+          for(var i = 0; i < likes.length; i++){
+            if(likes[i] === $scope.user._id){
+              console.log("hello");
+              push = false;
+              break;
             }
-          }) 
-        } else {
-              post.likes.push($scope.user._id);
-          $http.post("/api/posts/:id", post)
-              .success(function (data) {
-                console.log("data returned", data);
-              })
-        }
+          } 
+          if(push) {
+            post.likes.push($scope.user._id);
+            $http.post("/api/posts/:id", post)
+            .success(function (data) {
+              console.log("data returned", data);
+            })
+          }
+            
+          
+              
+
+        
             
         }  
 

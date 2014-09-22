@@ -28,6 +28,12 @@ app.config(function ($routeProvider) {
         controller: "UsersCtrl"        
       }
     )
+    .when('/likes',
+      {
+        templateUrl: "views/partials/likes.html",
+        controller: "UsersCtrl"        
+      }
+    )
     .when('/app',
       {
         templateUrl: "views/partials/app.html",

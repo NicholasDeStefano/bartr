@@ -1,10 +1,10 @@
-<section ng-repeat="post in posts">
+<section ng-repeat="post in usersLikes">
   <article>
     <header>
       <img ng-src="https://s3.amazonaws.com/bartr-imgs/s3UploadExample/{{post.user.imgRef}}" height="50px" width="50px"/>
       <span>{{post.user.local.email}}</span>
     </header>
-    <img ng-src="https://s3.amazonaws.com/bartr-imgs/s3UploadExample/{{post.imgRef}}" class="mainImg"/>
+    <img ng-src="https://s3.amazonaws.com/bartr-imgs/s3UploadExample/{{post.imgRef}}" height="250px" width="300px">
     <div class="postContent">
       <h1>{{post.title}}</h1>
       <p>{{post.caption}}</p>

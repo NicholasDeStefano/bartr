@@ -16,13 +16,12 @@
     $scope.usersLikes = [];
     $http.get('/api/posts')
       .success(function (posts) {
-        console.log("posts returned for user", posts);
         posts.forEach(function (post) {
           console.log(post);
           if(post.likes.length > 0){
-            posts.likes.forEach(function (like) {
+            post.likes.forEach(function (like) {
               if(like === $scope.user._id) {
-                console.log("you da fucking man")
+                $scope.usersLikes.push(post);
               }
             })
           }
