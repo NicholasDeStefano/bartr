@@ -1,8 +1,9 @@
 <div ng-repeat="post in posts">
     <p>{{post.user.local.email}}</p>
+    <span><img ng-src="https://s3.amazonaws.com/bartr-imgs/s3UploadExample/{{post.user.imgRef}}" height="50px" width="50px"/></span><br>
     <img ng-src="https://s3.amazonaws.com/bartr-imgs/s3UploadExample/{{post.imgRef}}" height="200px" width="200px">
     <p>{{post.title}}</p>
     <p>{{post.caption}}</p>
     <a ng-click="sendBartr(post)">Bartr</a>
-    <span ng-click="addLike(post)">Like^</span> {{post.likes}}
+    <span ng-click="addLike(post)">Like^</span> {{post.likes.length}}
 </div>

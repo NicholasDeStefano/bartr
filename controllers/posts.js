@@ -3,7 +3,7 @@ var mongoose = require('mongoose'),
     Post = mongoose.model('Post')
 
 exports.index = function (req, res) {
-  Post.find(req.query).populate('user').exec(function (err, posts) {
+  Post.find(req.query).populate('user').sort({ 'created': 'desc' }).exec(function (err, posts) {
       if(err){
         console.log("ERROR ", err);
       }
@@ -21,7 +21,11 @@ exports.create = function (req, res) {
 }
 
 exports.update = function (req, res) {
+  console.log(req.body);
+  delete req.body.user;
   Post.findByIdAndUpdate(req.body._id, req.body, function (err, post) {
+    console.log(err);
+
     res.send({post: post});
   });
 }

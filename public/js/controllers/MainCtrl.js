@@ -9,23 +9,35 @@
           .success(function (data) {
             console.log(data);
             $scope.posts = data;
-         })
+         });
+        $http.get('/profile')
+          .success(function (user) {
+            $scope.user = user;
+          })
 
         $scope.addLike = function (post) {
-          console.log(post);
-          if(!post.likes) {
-            post.likes = 1
-            $http.post("/api/posts/:id", post)
-            .success(function (data) {
-              $scope.post = data;
-            })
-          } else {
-            post.likes = post.likes + 1;
-            $http.post("/api/posts/:id", post)
-            .success(function (data) {
-              $scope.post = data;
-            })
-          };
+          if(post.likes.length > 0) {
+
+          
+          post.likes.forEach(function(like) {
+            if(like === $scope.user._id){
+              console.log("oh shit dude")
+              return;
+            } else {
+              post.likes.push($scope.user._id);
+              $http.post("/api/posts/:id", post)
+              .success(function (data) {
+                console.log("data returned", data);
+              })
+            }
+          }) 
+        } else {
+              post.likes.push($scope.user._id);
+          $http.post("/api/posts/:id", post)
+              .success(function (data) {
+                console.log("data returned", data);
+              })
+        }
             
         }  
 

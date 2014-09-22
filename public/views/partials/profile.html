@@ -1,18 +1,26 @@
 <div class="row">
-  <a ng-click="logout()">Logout</a>
-
     <!-- LOCAL INFORMATION -->
     <div class="col-sm-6">
       <div class="well">
         <h3><span class="fa fa-user"></span> Local</h3>
 
           <p>
-            <strong>id</strong>: {{user._id}} ><br>
+            <strong>id</strong>: {{user._id}} <br>
             <strong>email</strong>: {{user.local.email}}<br>
-            <strong>password</strong>: {{user.local.password}} 
+            <strong>password</strong>: {{user.local.password}}<br>
+            <img ng-src="https://s3.amazonaws.com/bartr-imgs/s3UploadExample/{{user.imgRef}}" height='50px' width='50px'>
           </p>
 
+        
+        <form role="form">
+          <div class="form-group">
+            <label for="photo">File input</label>
+            <input id="photo" type="file" class="btn" ng-file-select="onFileSelect($files)">
+            <p class="help-block">Example block-level help text here.</p>
+          </div>
+          <button ng-click="updateUser(user)" class="btn btn-default">Update</button>
+        </form>
       </div>
     </div>
-
+    <div class="col-sm-6">
   </div>

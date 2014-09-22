@@ -8,6 +8,7 @@ module.exports = function(app, passport) {
   app.get('/api/users', users.index);
   app.post('/api/users', users.create);
   app.get('/api/users/:id', users.show);
+  app.post('/api/users/:id', users.update);
 
   app.get('/home', function(req, res) {
     res.send("hello world"); // load the index.jade file
@@ -16,6 +17,7 @@ module.exports = function(app, passport) {
   var posts = require('../controllers/posts');
   app.post('/api/posts', posts.create);
   app.post('/api/posts/:id', posts.update);
+  app.get('/api/posts', posts.index);
 
   app.get('/api/app', isLoggedIn, posts.index);
 

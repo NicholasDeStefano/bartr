@@ -23,3 +23,9 @@ exports.show = function (req, res) {
     res.send(user);
   })
 }
+
+exports.update = function (req, res) {
+  User.findByIdAndUpdate(req.body._id, req.body, function (err, user) {
+    res.send(user);
+  })
+}
