@@ -11,7 +11,7 @@
         console.log(user);
         $scope.user = user;
       })
-
+    $scope.s3Url = "https://s3.amazonaws.com/bartr-imgs/s3UploadExample/";
     $scope.image;
     $scope.usersLikes = [];
     $http.get('/api/posts')
@@ -52,10 +52,10 @@
       uploadImage($scope.image);
       $scope.user.imgRef = $scope.image.name;
       $http.post('/api/users/:id', $scope.user).success(function(response) {
-                console.log(response);
-            }).then(function(){
-                $location.path('/profile');
-            })
+          console.log(response);
+      }).then(function(){
+          $location.path('/profile');
+      })
     };
 
     $scope.onFileSelect = function ($files) {

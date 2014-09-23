@@ -9,7 +9,7 @@
             <strong>id</strong>: {{user._id}} <br>
             <strong>email</strong>: {{user.local.email}}<br>
             <strong>password</strong>: {{user.local.password}}<br>
-            <img ng-src="https://s3.amazonaws.com/bartr-imgs/s3UploadExample/{{user.imgRef}}" height='50px' width='50px'>
+            <img ng-src="{{s3Url}}{{user.imgRef}}" height='50px' width='50px'>
           </p>
 
         

@@ -22,10 +22,11 @@ exports.create = function (req, res) {
 
 exports.update = function (req, res) {
   console.log(req.body);
+  var postId = req.body._id;
   delete req.body.user;
-  Post.findByIdAndUpdate(req.body._id, req.body, function (err, post) {
+  delete req.body._id;
+  Post.findByIdAndUpdate(postId, req.body, function (err, post) {
     console.log(err);
-
     res.send({post: post});
   });
 }

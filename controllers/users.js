@@ -25,7 +25,12 @@ exports.show = function (req, res) {
 }
 
 exports.update = function (req, res) {
-  User.findByIdAndUpdate(req.body._id, req.body, function (err, user) {
+  console.log("req.body", req.body);
+  var userId = req.body._id;
+  delete req.body._id;
+  User.findByIdAndUpdate(userId, req.body, function (err, user) {
+    console.log("error", err);
+    console.log("about to send user back", user);
     res.send(user);
   })
 }
