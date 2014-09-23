@@ -1,16 +1,18 @@
-<form role="form">
-  <div class="form-group">
-    <label for="title">Title</label>
-    <input type="text" class="form-control" id="title" placeholder="Bartarable Title" ng-model="post.title">
-  </div>
-  <div class="form-group">
-    <label for="photo">File input</label>
-    <input id="photo" type="file" class="btn" ng-file-select="onFileSelect($files)">
-    <p class="help-block">Example block-level help text here.</p>
-  </div>
-  <div class="form-group">
-    <label for="caption">Caption</label>
-    <input type="text" class="form-control" id="caption" placeholder="Caption" ng-model="post.caption">
-  </div>
-  <button ng-click="submitPost(post)" class="btn btn-default">Submit</button>
-</form>
+<div class="post-upload">
+  <form role="form">
+    <div class="form-group">
+      <label for="title">Title</label>
+      <input type="text" class="form-control" id="title" placeholder="Bartarable Title" ng-model="post.title">
+    </div>
+    <div class="form-group">
+      <label for="photo">File input</label>
+      <input id="photo" type="file" class="btn" ng-file-select="onFileSelect($files)">
+      <!-- <p class="help-block">Uploaded!</p> MAKE THIS A NOTIFICATION THAT THE IMAGE HAS BEEN UPLOADED -->
+    </div>
+    <div class="form-group">
+      <label for="caption">Caption</label>
+      <input type="text" class="form-control" id="caption" placeholder="Caption" ng-model="post.caption">
+    </div>
+    <button ng-click="submitPost(post)" class="btn btn-default">Submit</button>
+  </form>
+</div>

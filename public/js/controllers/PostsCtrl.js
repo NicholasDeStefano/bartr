@@ -13,8 +13,13 @@
         $http.get('/profile')
           .success(function (user) {
             console.log(user);
+            $scope.loggedIn = true;
             $scope.user = user;
-          })
+          }).error(function(data, status, headers, config) {
+            $scope.loggedIn = false;
+            console.log($scope.notLoggedIn)
+          });
+
         function uploadImage(file) {
             $http.get('/api/s3Policy?mimeType='+ file.type).success(function(response){
                 var s3Params = response;

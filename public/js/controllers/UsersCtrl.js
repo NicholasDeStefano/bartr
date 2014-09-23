@@ -10,7 +10,12 @@
       .success(function (user) {
         console.log(user);
         $scope.user = user;
-      })
+        $scope.LoggedIn = true;
+        console.log($scope.LoggedIn)
+      }).error(function(data, status, headers, config) {
+        $scope.LoggedIn = false;
+        console.log($scope.notLoggedIn)
+      });
     $scope.s3Url = "https://s3.amazonaws.com/bartr-imgs/s3UploadExample/";
     $scope.image;
     $scope.usersLikes = [];

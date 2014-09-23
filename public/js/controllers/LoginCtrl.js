@@ -13,6 +13,7 @@
     
       $http.post("/login", user)
         .success(function (user) {
+          $scope.LoggedIn = true;
           $location.path('/profile');
         })
     }

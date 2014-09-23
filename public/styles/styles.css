@@ -17,6 +17,9 @@
   .mobi-hide {
     display: none;
   }
+  .sticker-sticky-wrapper {
+    display: none;
+  }
   .mobi-nav {
     text-align: center;
   }
@@ -235,5 +238,32 @@ body {
   padding-right: 0;
 }
 
+nav {
+  background: #FFF;
+  z-index: 9999;
+}
 
+.post-upload {
+  margin-top: 30px;
+}
+
+.center {
+  text-align: center
+}
+
+.login {
+  font-size: 1.5em;
+  font-weight: bold;
+  padding: 15px;
+}
+
+.profile-page {
+  margin-top: 50px;
+}
+/*.sticky {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+}
+*/
 

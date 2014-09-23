@@ -1,25 +1,16 @@
-<div class="row">
-
-    <!-- LOCAL INFORMATION -->
-    <div class="col-sm-6">
-      <div class="well">
-        <h3><span class="fa fa-user"></span> Local</h3>
-
-          <p>
-            <strong>Username</strong>: {{user.local.username}} <br>
-            <strong>Email</strong>: {{user.local.email}}<br>
-            <img ng-src="{{s3Url}}{{user.imgRef}}" height='50px' width='50px'>
-          </p>
-
-        
-        <form role="form">
-          <div class="form-group">
-            <label for="photo">File input</label>
-            <input id="photo" type="file" class="btn" ng-file-select="onFileSelect($files)">
-            <!-- <p class="help-block">Example block-level help text here.</p> -->
-          </div>
-          <button ng-click="updateUser(user)" class="btn btn-default">Update</button>
-        </form>
-      </div>
-    </div>
+<form class="profile-page" role="form">
+  <div class="form-group">
+    <label for="caption">Email</label>
+    {{user.local.email}}
   </div>
+  <div class="form-group">
+    <label for="caption">Profile Image</label><br>
+    <img ng-src="{{s3Url}}{{user.imgRef}}" height='65px' width='65px'>
+  </div>
+  <div class="form-group">
+    <label for="photo">Upload Profile Photo</label>
+    <input id="photo" type="file" class="btn" ng-file-select="onFileSelect($files)">
+    <!-- <p class="help-block">Example block-level help text here.</p> -->
+  </div>
+  <button ng-click="updateUser(user)" class="btn btn-default">Update</button>
+</form>
