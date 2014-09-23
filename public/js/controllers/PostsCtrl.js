@@ -21,6 +21,7 @@
           });
 
         function uploadImage(file) {
+            console.log("file being uploaded", file);
             $http.get('/api/s3Policy?mimeType='+ file.type).success(function(response){
                 var s3Params = response;
                 $scope.image = $upload.upload({
