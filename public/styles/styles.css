@@ -1,3 +1,86 @@
+@media screen and (max-width: 410px) {
+  /*BODY / MAIN SECTION*/
+  body {
+    font-size: 100%;
+  }
+  #main {
+    padding-top: 15px;
+    background: #f2f2f2; /*for a lil darker gray e7e7e7*/
+  }
+  /*NAVIGATION*/
+  .navigation {
+    border-bottom: 3px solid #8561e6;
+    background-color: #FFF;
+    width: 100%;
+    z-index: 9999;
+  }
+  .mobi-hide {
+    display: none;
+  }
+  .mobi-nav {
+    text-align: center;
+  }
+  .mobi-nav h1 {
+    margin-top: 5px;
+    color: #8561e6;
+  }
+  /*POSTS-FEED-HEADER*/
+  section {
+    width: 100%;
+
+  }
+  section article {
+    clear: left;
+  }
+  article header span {
+    font-size: 1.5em;
+  }
+  .profile-pic {
+    position: relative;
+    top: 5px;
+    height: 46px;
+    width: 46px;
+    padding: 5px;
+    z-index: 99;
+  }
+  .post-time {
+    position: relative;
+    left: 215px;
+  }
+  /*POSTS-FEED-BODY*/
+  .mainImg {
+    position: relative;
+    bottom: 10px;
+    height: auto ;
+    width: 100%;
+  }
+  article p {
+    font-size: 1.4em;
+    font-weight: lighter;
+    padding-left: 15px;
+  }
+
+  .post-likes {
+    float: left;
+    font-size: 2em;
+    margin-left: 10px;
+    padding: 8px;
+    border: 2px solid #e7e7e7 ;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    cursor: pointer;
+  }
+
+  .post-likes span {
+    font-size: .75em;
+    padding-left: 5px;
+    position: relative;
+    bottom: 2px;
+  }
+
+
+}
+
 .bIcon {
     width: auto;
     height: 48px;
@@ -7,9 +90,13 @@
 body {
   font-family: "brandon-grotesque",sans-serif;
 }
+.container {
+  padding-right: 0;
+  padding-left: 0;
+}
 
 .navigation {
-  border-top: 5px solid #8561e6;
+  /*border-top: 5px solid #8561e6;*/
   background-color: #FFF;
   width: 100%;
   z-index: 9999;
@@ -27,25 +114,25 @@ body {
 
 #main {
   clear: left;
-  padding-top: 50px;
+  /*padding-top: 50px;*/
 }
 
 .glyphicon {
   font-size: 2em;
 }
 
-.mainImg {
-   /*height: 250px;
-   width: 300px;*/
+/*.mainImg {
+   height: 250px;
+   width: 300px;
    height: auto ;
    width: 45% ;
-}
+}*/
 
 aside ul {
   list-style: none;
 }
 
-section article {
+/*section article {
   margin-left: 10%;
 }
 
@@ -68,4 +155,4 @@ section article p {
 
 section article .postContent {
   margin-left: 20px;
-}
+}*/

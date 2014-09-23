@@ -9,6 +9,8 @@
   <!-- CSS -->
   <link rel="stylesheet" href="libs/bootstrap/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="styles/styles.css">
+  <link rel="stylesheet" href="styles/mobile.css" media="handheld"/>
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
   <script src="//use.typekit.net/vak7rnk.js"></script>
   <script>try{Typekit.load();}catch(e){}</script>
   <!-- <link rel="stylesheet" href="css/style.css"> -->
@@ -39,11 +41,11 @@
   </script>
 </head>
 <body ng-app="bartr">
-  <div class="container col-sm-12">
+  <div class="container">
 
   <!-- HEADER -->
     <nav id="sticker" class="navigation">
-      <div>
+      <div class="mobi-hide">
         <a class="logo" href="/#/app"><img src="images/logo.png" height="100px"></a>
         <div class="navtext">
           <p>BARTR: IT'S LIKE CRAIGSLIST (EXCEPT NOT.)</p>
@@ -51,13 +53,16 @@
           <p>Have something? <a href="/#/posts">Upload it</a></p>
         </div>
       </div>
+      <div class="mobi-nav">
+        <h1>Bartr</h1>
+      </div>
     </nav>
 
-    <div id="main" class="col-sm-10">
+    <div id="main">
       <ng-view></ng-view>
     </div>
 
-    <aside id="side" class="col-sm-2">
+<!--     <aside id="side" class="col-sm-2">
       <ul>
         <li>
           <a href="/#/posts">
@@ -72,7 +77,7 @@
           </a>
         </li>
       </ul>
-    </aside>
+    </aside> -->
 
 
   </div>
