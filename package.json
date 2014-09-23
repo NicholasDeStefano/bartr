@@ -1,19 +1,32 @@
 {
   "name": "Bartr",
   "version": "0.0.1",
+  "description": "It's a lot like craigslist, but not.",
+  "author": "Nicholas DeStefano",
+  "engines": {
+    "node": "0.10.x"
+  },
+  "scripts": {
+    "preinstall": "echo here it comes!",
+    "postinstall": "echo there it goes!",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nickdestefano/bartr"
+  },
   "dependencies": {
     "aws-sdk": "~2.0.0-rc11",
     "bcrypt-nodejs": "latest",
     "body-parser": "~1.4.2",
     "connect-flash": "~0.1.1",
+    "connect-mongo": "^0.3.3",
     "cookie-parser": "~1.0.0",
     "cors": "^2.4.2",
-    "debug": "latest",
     "express": "~4.0.0",
     "express-session": "~1.0.0",
     "jade": "^1.7.0",
     "method-override": "~2.0.2",
-    "mime": "^1.2.11",
     "mongoose": "~3.8.0",
     "morgan": "~1.0.0",
     "passport": "~0.1.17",

@@ -3,6 +3,7 @@ var mongoose = require("mongoose");
 var cors = require("cors");
 var passport = require("passport");
 var flash = require("connect-flash");
+var env = process.env.NODE_ENV || 'development';
 
 var morgan = require("morgan");
 var cookieParser = require("cookie-parser");
@@ -10,10 +11,10 @@ var bodyParser = require("body-parser");
 var methodOverride = require("method-override");
 var session = require("express-session");
 
-var config = require('./config/config');
+var config = require('./config/config')[env];
 
 var port = process.env.PORT || 1529;
-mongoose.connect(config.development.db);
+mongoose.connect(config.db);
 
 require('./config/passport')(passport);
 
