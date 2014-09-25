@@ -116,6 +116,10 @@
     position: relative;
     bottom: 2px;
   }
+  article:last-child {
+    padding-bottom: 140px;
+    background-color: #f2f2f2;
+  }
 }
 
 @media screen and (min-width: 410px) {
