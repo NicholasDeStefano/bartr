@@ -21,9 +21,8 @@ exports.testEmail = function(req, res) {
     //The email to contact
       to: req.params.email,
     //Subject and text data  
-      subject: 'Let\'s make a bartr trade!',
-      html: 'Hello our new user! Someone has notified our team that they would like to do a bartr transaction with you. This is where our team steps in and tries to see if we can\'t make both parties come out getting something that they wanted!\n' +
-        'Our goal here is to help User A get the item that they have just previously clicked on to make a deal. Plase let us know if you would like to further the discussion. Thank you and keep bartring!' 
+      subject: "Bartr has a trade for you!",
+      html: "Hello our new user! Someone has notified our team that they would like to do a bartr transaction with you. This is where our team steps in and tries to see if we cant make both parties come out getting something that they wanted!"
     }
 
     //Invokes the method to send emails given the above data with the helper library
