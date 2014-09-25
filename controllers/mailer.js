@@ -36,7 +36,7 @@ exports.testEmail = function(req, res) {
         else {
             //Here "submitted.jade" is the view file for this landing page 
             //We pass the variable "email" from the url parameter in an object rendered by Jade
-            res.send('submitted', { email : req.params.email });
+            res.send({ email : req.params.email });
             console.log(body);
         }
     });
