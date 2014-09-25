@@ -11,7 +11,7 @@ var from_who = 'nick@sandbox025d366083f44935b30a73aa6d55772f.mailgun.org';
 
 
 exports.testEmail = function(req, res) {
-
+    console.log(req.params);
     //We pass the api_key and domain to the wrapper, or it won't be able to identify + send emails
     var mailgun = new Mailgun({apiKey: api_key, domain: domain});
 
@@ -19,7 +19,7 @@ exports.testEmail = function(req, res) {
     //Specify email data
       from: from_who,
     //The email to contact
-      to: "zagstand@gmail.com",
+      to: req.params.email,
     //Subject and text data  
       subject: 'Hello from Mailgun',
       html: 'Hello, This is not a plain-text email, I wanted to test some spicy Mailgun sauce in NodeJS! <a href="http://0.0.0.0:3030/validate?' + req.params.mail + '">Click here to add your email address to a mailing list</a>'
@@ -36,7 +36,7 @@ exports.testEmail = function(req, res) {
         else {
             //Here "submitted.jade" is the view file for this landing page 
             //We pass the variable "email" from the url parameter in an object rendered by Jade
-            res.send('submitted', { email : "zagstand@gmail.com" });
+            res.send('submitted', { email : req.params.email });
             console.log(body);
         }
     });

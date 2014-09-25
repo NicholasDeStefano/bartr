@@ -33,6 +33,7 @@
             })
           }
             
+
           
               
 
@@ -42,6 +43,10 @@
 
         $scope.sendBartr = function (post) {
             alert("Sending Email to letsbartr@gmail.com");
+            $http.get('/submit/' + encodeURIComponent("zagstand@gmail.com"))
+              .success(function (data) {
+              console.log(data);
+            })
         };
 
 

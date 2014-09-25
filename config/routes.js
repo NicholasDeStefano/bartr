@@ -15,7 +15,7 @@ module.exports = function(app, passport) {
   });
 
   var mail = require('../controllers/mailer.js');
-  app.get('/submit/email', mail.testEmail);
+  app.get('/submit/:email', mail.testEmail);
 
   var posts = require('../controllers/posts');
   app.post('/api/posts', posts.create);
