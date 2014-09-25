@@ -4,7 +4,6 @@
 (function(){
 
   app.controller('MainCtrl', function($scope, $http, $location, $upload, $rootScope) {
-    
         $http.get("/api/app")
           .success(function (data) {
             console.log(data);
@@ -31,21 +30,22 @@
             .success(function (data) {
               console.log("data returned", data);
             })
-          }
-            
-
-          
-              
-
-        
+          }              
             
         }  
 
         $scope.sendBartr = function (post) {
-            alert("Sending Email to letsbartr@gmail.com");
-            $http.get('/submit/' + encodeURIComponent("zagstand@gmail.com"))
+          var post_title = post.title ? post.title : post._id;
+          var post_user = post.user ? post.user.local.email : "user no longer exists"
+          var info = {
+            postTitle: post_title,
+            postUser: post_user,
+            currUser:  $scope.user.local.email
+          }
+
+            $http.post('/submit', info)
               .success(function (data) {
-              console.log(data);
+                alert("letsbartr@gmail.com has been emailed about your trade!");
             })
         };
 

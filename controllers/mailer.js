@@ -1,46 +1,25 @@
 var Mailgun = require('mailgun-js');
-
-//Your api key, from Mailgun’s Control Panel
-var api_key = 'key-c5d1cc362806d46be0f463d8c595ac9a';
-
-//Your domain, from the Mailgun Control Panel
-var domain = 'letsbartr.com';
-
-//Your sending email address
-var from_who = 'nick@letsbartr.com';
-
+var config = require('../config/mailgun.js');
 
 exports.testEmail = function(req, res) {
-    console.log(req.params);
-    //We pass the api_key and domain to the wrapper, or it won't be able to identify + send emails
-    var mailgun = new Mailgun({apiKey: api_key, domain: domain});
-
+    // console.log(req.body);
+    var mailgun = new Mailgun({apiKey: config.mailgun.api_key, domain: config.mailgun.domain});
     var data = {
-    //Specify email data
-      from: from_who,
-    //The email to contact
-      to: req.params.email,
-    //Subject and text data  
-      subject: 'Bartr has a trade for you!',
-      html: 'Hello our new user! Someone has notified our team that they would like to do a bartr transaction with you. This is where our team steps in and tries to see if we cant make both parties come out getting something that they wanted!'
+      from: config.mailgun.from_who,
+      to: 'letsbartr@gmail.com',
+      subject: 'Someone wants to trade!',
+      html: req.body.currUser + ' wants to trade ' + req.body.postUser + ' for their ' + req.body.postTitle + '.'
     }
-
-    //Invokes the method to send emails given the above data with the helper library
     mailgun.messages().send(data, function (err, body) {
-        //If there is an error, render the error page
         if (err) {
             res.send('error', { error : err});
             console.log("got an error: ", err);
         }
-        //Else we can greet    and leave
         else {
-            //Here "submitted.jade" is the view file for this landing page 
-            //We pass the variable "email" from the url parameter in an object rendered by Jade
-            res.send({ email : req.params.email });
+            res.send({ response : "letsbartr has been emailed about this bartr!" });
             console.log(body);
         }
     });
-
 };
 
 // app.get('/validate/:mail', function(req,res) {
