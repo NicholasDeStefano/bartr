@@ -26,6 +26,30 @@
     width: 100%;
     z-index: 9999;
   }
+  aside {
+    position: fixed;
+    bottom: 0px;
+    border-top: 2px solid #8561e6;
+    background-color: #FFF;
+    width: 100%;
+    z-index: 9999;
+  }
+  aside ul {
+    list-style: none;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 5%;
+    margin-right: 5%;
+    -webkit-padding-start: 0px;
+  }
+  aside ul li {
+    font-size: 1.5em;
+    display: inline-block;
+    width: 30%;
+    text-align: center;
+    padding: 5px;
+  }
+
   .mobi-hide {
     display: none;
   }
@@ -108,6 +132,9 @@
     padding-left: 0;
     padding-right: 0;
   }
+  .mobi-nav-bottom {
+    display: none;
+  }
   .mobi-nav {
     display: none;
   }
@@ -156,6 +183,7 @@
     margin-left: 4%;
     margin-right: 10%;
     width: 21%;
+    top: 140px
   }
 
   aside ul {
@@ -272,10 +300,5 @@ nav {
 .profile-page {
   margin-top: 50px;
 }
-/*.sticky {
-  position: -webkit-sticky;
-  position: sticky;
-  top: 0;
-}
-*/
+
 

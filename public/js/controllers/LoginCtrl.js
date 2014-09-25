@@ -2,7 +2,7 @@
 
 (function(){
 
-  app.controller('LoginCtrl', function($scope, $http, $location) {
+  app.controller('LoginCtrl', function($rootScope, $scope, $http, $location) {
     
     $http.get("/login")
       .success(function (data) {
@@ -13,7 +13,7 @@
     
       $http.post("/login", user)
         .success(function (user) {
-          $scope.LoggedIn = true;
+          $rootScope.LoggedIn = true;
           $location.path('/profile');
         })
     }
