@@ -4,10 +4,10 @@ var Mailgun = require('mailgun-js');
 var api_key = 'key-c5d1cc362806d46be0f463d8c595ac9a';
 
 //Your domain, from the Mailgun Control Panel
-var domain = 'sandbox025d366083f44935b30a73aa6d55772f.mailgun.org';
+var domain = 'letsbartr.com';
 
 //Your sending email address
-var from_who = 'nick@sandbox025d366083f44935b30a73aa6d55772f.mailgun.org';
+var from_who = 'nick@letsbartr.com';
 
 
 exports.testEmail = function(req, res) {
@@ -21,8 +21,9 @@ exports.testEmail = function(req, res) {
     //The email to contact
       to: req.params.email,
     //Subject and text data  
-      subject: 'Hello from Mailgun',
-      html: 'Hello, This is not a plain-text email, I wanted to test some spicy Mailgun sauce in NodeJS! <a href="http://0.0.0.0:3030/validate?' + req.params.mail + '">Click here to add your email address to a mailing list</a>'
+      subject: 'Let\'s make a bartr trade!',
+      html: 'Hello our new user! Someone has notified our team that they would like to do a bartr transaction with you. This is where our team steps in and tries to see if we can\'t make both parties come out getting something that they wanted!\n' +
+        'Our goal here is to help User A get the item that they have just previously clicked on to make a deal. Plase let us know if you would like to further the discussion. Thank you and keep bartring!' 
     }
 
     //Invokes the method to send emails given the above data with the helper library
