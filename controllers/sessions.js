@@ -12,7 +12,7 @@ exports.signup = function (req, res) {
     from: config.mailgun.from_who,
     to: [req.body.email, 'letsbartr@gmail.com'],
     subject: 'Welcome to Bartr!',
-    html: 'Congratulations on joining bartr ' + req.body.email + '! We are happy to have you and any questions please email us help@letsbarter.com'
+    html: 'Congratulations on joining bartr ' + req.body.email + '! We are happy to have you and any questions please email us letsbartr@gmail.com'
   }
   //Invokes the method to send emails given the above data with the helper library
   mailgun.messages().send(data, function (err, body) {
