@@ -1,18 +1,19 @@
 <div class="post-upload">
   <form role="form">
     <div class="form-group">
-      <label for="title">Title</label>
-      <input type="text" class="form-control" id="title" placeholder="Bartarable Title" ng-model="post.title">
+      <label for="title">What do you have?</label>
+      <input type="text" class="form-control" id="title" placeholder="ex: Beyonce tickets" ng-model="post.title">
     </div>
     <div class="form-group">
-      <label for="photo">File input</label>
+      <label for="photo">Prove it with a pic</label>
       <input id="photo" type="file" class="btn" ng-file-select="onFileSelect($files)">
       <!-- <p class="help-block">Uploaded!</p> MAKE THIS A NOTIFICATION THAT THE IMAGE HAS BEEN UPLOADED -->
     </div>
     <div class="form-group">
-      <label for="caption">Caption</label>
-      <input type="text" class="form-control" id="caption" placeholder="Caption" ng-model="post.caption">
+      <label for="caption">Tell me more</label>
+      <input type="text" class="form-control" id="caption" placeholder="ex: Two 300 levels tickets to Queen B / J @ MetLife 06/11." ng-model="post.caption">
     </div>
-    <button ng-click="submitPost(post)" class="btn btn-default">Submit</button>
+    <button ng-click="submitPost(post)" class="btn btn-default">Upload</button>
+    <a href='/#/app' class="btn btn-default">Nevermind</button>
   </form>
 </div>

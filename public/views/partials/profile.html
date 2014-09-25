@@ -4,13 +4,12 @@
     {{user.local.email}}
   </div>
   <div class="form-group">
-    <label for="caption">Profile Image</label><br>
     <img ng-src="{{s3Url}}{{user.imgRef}}" height='65px' width='65px'>
   </div>
   <div class="form-group">
-    <label for="photo">Upload Profile Photo</label>
+    <label for="photo">Show your #selfie</label>
     <input id="photo" type="file" class="btn" ng-file-select="onFileSelect($files)">
     <!-- <p class="help-block">Example block-level help text here.</p> -->
   </div>
-  <button ng-click="updateUser(user)" class="btn btn-default">Update</button>
+  <button ng-click="updateUser(user)" class="btn btn-default">Done</button>
 </form>

@@ -59,7 +59,7 @@
       $http.post('/api/users/:id', $scope.user).success(function(response) {
           console.log(response);
       }).then(function(){
-          $location.path('/profile');
+          $location.path('/app');
       })
     };
 
