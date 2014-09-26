@@ -4,7 +4,6 @@
 (function(){
 
   app.controller('PostsCtrl', function($scope, $http, $location, $upload, $rootScope, User) {
-    
         $scope.imageUploads = [];
 
         $scope.post = {};
@@ -22,6 +21,9 @@
 
         function uploadImage(file) {
             console.log("file being uploaded", file);
+            var name = Math.round(Math.random()*10000) + '$' + file.name;
+            delete file.name;
+            file['name'] = name;
             $http.get('/api/s3Policy?mimeType='+ file.type).success(function(response){
                 var s3Params = response;
                 $scope.image = $upload.upload({
@@ -39,6 +41,9 @@
                     file: file,
                 });
             })
+            .then(function(response) {
+                console.log(response)
+            }
         }
         $scope.submitPost = function(post) {
             // console.log("post", post);
