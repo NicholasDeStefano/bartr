@@ -1,9 +1,6 @@
 module.exports = function(app, passport) {
 
-  app.get('/api/test', function (req, res) {
-    res.send("Hello World!");
-  })
-
+  // Users
   var users = require('../controllers/users');
   app.get('/api/users', users.index);
   app.post('/api/users', users.create);
@@ -14,20 +11,28 @@ module.exports = function(app, passport) {
     res.send("hello world"); // load the index.jade file
   });
 
+  // Mailgun
   var mail = require('../controllers/mailer.js');
   app.post('/submit', mail.testEmail);
 
+  // Posts
   var posts = require('../controllers/posts');
   app.post('/api/posts', posts.create);
   app.post('/api/posts/:id', posts.update);
   app.get('/api/posts', posts.index);
-
   app.get('/api/app', isLoggedIn, posts.index);
 
+  //Session
+  var sessions = require('../controllers/sessions');
+  app.post('/signup', passport.authenticate('local-signup', { failureFlash : true }), sessions.signup);
+  app.post('/login', passport.authenticate('local-login', { failureFlash : true }), sessions.login);
+  app.get('/profile', sessions.currentUser);
+  app.get('/logout', sessions.logout);
   app.get('/login', function(req, res) {
-
-    // render the page and pass in any flash data if it exists
     res.send('loggin in bitches', { message: req.flash('loginMessage') }); 
+  });
+  app.get('/signup', function(req, res) {
+    res.send('signing up bitch', { message: req.flash('signupMessage') });
   });
 
   // AWS 
@@ -37,25 +42,9 @@ module.exports = function(app, passport) {
   app.get('/api/config', api.getClientConfig);
   app.get('/api/s3Policy', aws.getS3Policy);
 
-  app.get('/signup', function(req, res) {
-
-    // render the page and pass in any flash data if it exists
-    res.send('signing up bitch', { message: req.flash('signupMessage') });
-  });
-
-  var sessions = require('../controllers/sessions');
-  app.post('/signup', passport.authenticate('local-signup', { failureFlash : true }), sessions.signup);
-  app.post('/login', passport.authenticate('local-login', { failureFlash : true }), sessions.login);
-  // app.get('/api/session', sessions.session);
-  app.get('/profile', isLoggedIn, sessions.currentUser);
-  app.get('/logout', sessions.logout);
-
-
-
 }
 
 function isLoggedIn(req, res, next) {
-
   // if user is authenticated in the session, carry on 
   if (req.isAuthenticated())
     return next();
