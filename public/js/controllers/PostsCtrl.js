@@ -43,19 +43,21 @@
             })
             .then(function(response) {
                 console.log(response)
-            }
+            });
         }
         $scope.submitPost = function(post) {
-            // console.log("post", post);
+            console.log("post", post);
             uploadImage($scope.image);
             console.log("image", $scope.image);
             $scope.post.user = $scope.user._id;
             $scope.post.imgRef = $scope.image.name;
             console.log("post about to send", post);
             $http.post('/api/posts', $scope.post).success(function(response) {
-                console.log(response);
+                console.log("successfull res", response);
             }).then(function(){
                 $location.path('/app');
+            }).error(function(err){
+                console.log(err);
             })
             
             $scope.post = {};

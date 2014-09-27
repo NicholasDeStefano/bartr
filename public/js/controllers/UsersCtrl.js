@@ -22,7 +22,6 @@
     $http.get('/api/posts')
       .success(function (posts) {
         posts.forEach(function (post) {
-          console.log(post);
           if(post.likes.length > 0){
             post.likes.forEach(function (like) {
               if(like === $scope.user._id) {
@@ -34,6 +33,9 @@
       })
 
     function uploadImage(file) {
+      var name = Math.round(Math.random()*10000) + '$' + file.name;
+      delete file.name;
+      file['name'] = name;
         $http.get('/api/s3Policy?mimeType='+ file.type).success(function(response){
             var s3Params = response;
             $scope.image = $upload.upload({

@@ -16,6 +16,8 @@
           console.log('user', user);
         }).then(function (user) {
           $location.path('/profile');
+        }).error(function(err) {
+          console.log(err);
         })
 
     }
