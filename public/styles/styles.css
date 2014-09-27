@@ -153,10 +153,12 @@
     margin-bottom: 40px;
   }
   nav h1 {
-    font-size: 1em;
+    font-size: 2em;
+    font-weight: 700;
     color: #8561e6;
     text-transform: uppercase;
     letter-spacing: 2px;
+    padding: 15px 0;
 
   }
   nav p {
@@ -165,16 +167,15 @@
   }
   .mobi-hide {}
   .navtext {
-    display:inline-block;
-    margin-left: 28%;
+    margin-left: 0 auto;
   }
   .nav-text-center {
     text-align: center;
   }
 
   .logo img {
-    display:inline-block;
-    vertical-align: top;
+    position: absolute;
+    top: 5px;
     width: auto;
     height: 100px;
   }
@@ -305,4 +306,7 @@ nav {
   margin-top: 50px;
 }
 
+.hideNav {
+  display: none;
+}
 

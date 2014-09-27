@@ -56,8 +56,6 @@
                 console.log("successfull res", response);
             }).then(function(){
                 $location.path('/app');
-            }).error(function(err){
-                console.log(err);
             })
             
             $scope.post = {};

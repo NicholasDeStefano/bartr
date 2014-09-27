@@ -28,13 +28,10 @@ app.config(function ($routeProvider) {
 })
 app.run(function($rootScope, $http, $route, $location) {
     $rootScope.$on('$routeChangeStart', function(event, next, current) {
-      console.log("event", event);
-      console.log("next", next);
+      $rootScope.location = $location;
       var nextRoute = next ? next.$$route.originalPath : null;
       var curRoute = current ? current.$$route.originalPath : null;
-      console.log("current", current);
-
-
+    
       $http.get('/profile')
         .success(function (user) {
           if(nextRoute === "/login") {
