@@ -10,7 +10,7 @@
 
     $scope.login = function (user) {
       $http.post("/login", user).success(function (user) {
-        $location.path('/profile');
+        $location.path('/app');
       });
     };
   });
