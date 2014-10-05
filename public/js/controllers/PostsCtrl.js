@@ -42,11 +42,14 @@
                 });
             })
             .then(function(response) {
-                console.log(response)
+                console.log("response", response)
             });
         }
         $scope.submitPost = function(post) {
-            console.log("post", post);
+            console.log("post", post.title);
+            if(post.title == undefined || post.caption == undefined || $scope.image == undefined){
+                alert("Post must have a title, image, and caption.");
+            } else {
             uploadImage($scope.image);
             console.log("image", $scope.image);
             $scope.post.user = $scope.user._id;
@@ -59,6 +62,7 @@
             })
             
             $scope.post = {};
+            }
         }
 
         $scope.onFileSelect = function ($files) {
