@@ -20,6 +20,11 @@ module.exports = function(app, passport) {
   app.post('/api/posts', posts.create);
   app.post('/api/posts/:id', posts.update);
   app.get('/api/posts', posts.index);
+  app.get('/api/posts/:id', posts.post);
+  app.delete('/api/posts/:id', posts.delete);
+
+
+
   app.get('/api/app', isLoggedIn, posts.index);
 
   //Session

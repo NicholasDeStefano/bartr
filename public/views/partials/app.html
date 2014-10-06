@@ -2,7 +2,7 @@
   <article ng-repeat="post in posts">
     <header>
       <img class="profile-pic" ng-src="https://s3.amazonaws.com/bartr-imgs/s3UploadExample/{{post.user.imgRef}}"/>
-      <span>{{post.user.local.email}}</span>
+      <a ng-show="{{user._id === post.user._id}}" href="/#/posts/{{post._id}}">Edit Post</a>
       <!-- <span class="post-time mobi-nav">3h</span> -->
     </header>
 

@@ -30,3 +30,23 @@ exports.update = function (req, res) {
     res.send({post: post});
   });
 }
+
+exports.post = function (req, res) {
+  var postId = req.params.id;
+  console.log("body", req.body);
+  console.log("query", req.query);
+  Post.findById(postId, function (err, post){
+    console.log(err);
+    res.send({post: post});
+  });
+}
+
+exports.delete = function (req, res) {
+  var postId = req.params.id;
+  console.log(postId);
+  Post.remove({_id: postId}, function (err, post){
+    console.log(err);
+    res.send({});
+  });
+
+}

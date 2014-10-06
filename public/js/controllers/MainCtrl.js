@@ -11,6 +11,7 @@
          });
         $http.get('/profile')
           .success(function (user) {
+            console.log("user", user);
             $scope.user = user;
           })
 
