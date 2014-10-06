@@ -31,9 +31,25 @@
             .success(function (data) {
               console.log("data returned", data);
             })
-          }              
-            
-        }  
+          }               
+        }
+        // $scope.addComment = false;
+        $scope.addComment = function(post, comment) {
+          console.log(post);
+          console.log(comment);
+          console.log($scope.user);
+          var c = {
+            body: comment.body,
+            user: $scope.user._id,
+            post: post._id
+          };
+          console.log(c);
+          post.comments.push(c);
+          $http.post('/api/posts/'+post._id+'/comments', c).success(function (data){
+            console.log(data);
+          })
+
+        }
 
         $scope.sendBartr = function (post) {
           var post_title = post.title ? post.title : post._id;

@@ -3,7 +3,7 @@
 
 (function(){
 
-  app.controller('PostsCtrl', function($scope, $http, $location, $upload, $rootScope, User) {
+  app.controller('CreatePostsCtrl', function($scope, $http, $location, $upload, $rootScope, User) {
         $scope.imageUploads = [];
 
         $scope.post = {};

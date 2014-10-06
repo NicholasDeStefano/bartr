@@ -272,6 +272,15 @@
     position: relative;
     bottom: 2px;
   }
+
+  .comment {
+    clear: left;
+  }
+
+  .supersmallImg {
+    width: 30px;
+    height: 30px;
+  }
 }
 
 body {

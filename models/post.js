@@ -8,7 +8,8 @@ var PostSchema = mongoose.Schema({
   imgRef: String,// create the model for users and expose it to our app
   caption: String,
   likes: [{ type: Schema.ObjectId, ref: 'User' }],
-  user: { type: Schema.ObjectId, ref: 'User' }
+  user: { type: Schema.ObjectId, ref: 'User' },
+  comments: [{ type: Schema.ObjectId, ref: 'Comment' }]
 });
 
 module.exports = mongoose.model('Post', PostSchema);

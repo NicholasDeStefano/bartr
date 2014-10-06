@@ -42,7 +42,7 @@
                 url: 'https://bartr-imgs.s3.amazonaws.com/',
                 method: 'POST',
                 data: {
-                    'key' : 's3UploadExample/' + file.name,
+                    'key' : 's3UploadExample/' + $scope.user._id,
                     'acl' : 'public-read',
                     'Content-Type' : file.type,
                     'AWSAccessKeyId': s3Params.AWSAccessKeyId,
@@ -57,7 +57,7 @@
 
     $scope.updateUser = function (user) {
       uploadImage($scope.image);
-      $scope.user.imgRef = $scope.image.name;
+      // $scope.user.imgRef = $scope.image.name;
       $http.post('/api/users/:id', $scope.user).success(function(response) {
           console.log(response);
       }).then(function(){

@@ -23,50 +23,50 @@ app.config(function ($routeProvider) {
       { templateUrl: "views/partials/app.html",     controller: "MainCtrl" }
     )
     .when('/posts',
-      { templateUrl: "views/partials/posts/posts.html",   controller: "PostsCtrl" }
+      { templateUrl: "views/partials/posts/posts.html",   controller: "CreatePostsCtrl" }
     )
     .when('/posts/:id',
       { templateUrl: "views/partials/posts/post.html",   controller: "ViewPostCtrl" }
     )
 })
-// app.run(function($rootScope, $http, $route, $location) {
-//     $rootScope.$on('$routeChangeStart', function(event, next, current) {
-//       $rootScope.location = $location;
-//       var nextRoute = next ? next.$$route.originalPath : null;
-//       var curRoute = current ? current.$$route.originalPath : null;
+app.run(function($rootScope, $http, $route, $location) {
+    $rootScope.$on('$routeChangeStart', function(event, next, current) {
+      $rootScope.location = $location;
+      var nextRoute = next ? next.$$route.originalPath : null;
+      var curRoute = current ? current.$$route.originalPath : null;
     
-//       $http.get('/profile')
-//         .success(function (user) {
-//           if(nextRoute === "/login") {
-//             if(user) {
-//               $location.path('/app')
-//             } else {
-//               $location.path("/login")
-//             }
-//           } else if(nextRoute === "/signup") {
-//             if(user) {
-//               $location.path('/app');
-//             } else {
-//               $location.path('/signup')
-//             }
-//           } else {
-//             if(user) {
-//               $location.path(nextRoute);
-//             } else {
-//               $location.path("/login");
-//             }
-//           }
+      $http.get('/profile')
+        .success(function (user) {
+          if(nextRoute === "/login") {
+            if(user) {
+              $location.path('/app')
+            } else {
+              $location.path("/login")
+            }
+          } else if(nextRoute === "/signup") {
+            if(user) {
+              $location.path('/app');
+            } else {
+              $location.path('/signup')
+            }
+          } else {
+            if(user) {
+              $location.path(nextRoute);
+            } else {
+              $location.path("/login");
+            }
+          }
 
-//         }).error(function (err) {
-//           console.log(err);
-//         })
-//     })
-//   })
-//   .run(function($rootScope) {
-//     $rootScope.$on('$routeChangeSuccess', function() {
-//       console.log('route change is finishing')
-//     })
-//   })
+        }).error(function (err) {
+          console.log(err);
+        })
+    })
+  })
+  .run(function($rootScope) {
+    $rootScope.$on('$routeChangeSuccess', function() {
+      console.log('route change is finishing')
+    })
+  })
 
 // app.factory('Data', function(){
 //   return { message: "I'm data form a service" }
