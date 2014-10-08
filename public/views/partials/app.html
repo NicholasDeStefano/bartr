@@ -19,16 +19,17 @@
         <span>make a bartr</span>
       </div>
       <div class="comment">
-
-        <div ng-repeat="comment in post.comments">
+        <span ng-click="openComments(post)">{{post.comments.length}} comments</span>
+        <i class="fa fa-caret-down pull-right"></i>
+        <div ng-show="post.showComments" ng-repeat="comment in post.comments">
         <img ng-src="https://s3.amazonaws.com/bartr-imgs/s3UploadExample/{{comment.user}}" class="supersmallImg"/>
         {{comment.body}}
 
         </div>
       </div>
-      <div class="comment">
-        <a ng-click="addComment(post, comment)" class="btn btn-default">Add Comment</a>
-        <input type="text" class="form-control" ng-model="comment.body">
+      <div ng-show="post.showComments" class="commentinput">
+        <input type="text" class="form-control commentinput" placeholder="Got something to say?" ng-model="comment.body">
+        <span ng-click="addComment(post, comment)" class="btn btn-default commentinput">Add Comment</span>
       </div>
     </div>
    

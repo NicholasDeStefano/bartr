@@ -31,28 +31,22 @@ app.config(function ($routeProvider) {
 })
 app.run(function($rootScope, $http, $route, $location) {
     $rootScope.$on('$routeChangeStart', function(event, next, current) {
-      $rootScope.location = $location;
-      var nextRoute = next ? next.$$route.originalPath : null;
-      var curRoute = current ? current.$$route.originalPath : null;
-    
       $http.get('/profile')
         .success(function (user) {
-          if(nextRoute === "/login") {
+          if(next.$$route.originalPath === "/login") {
             if(user) {
               $location.path('/app')
             } else {
               $location.path("/login")
             }
-          } else if(nextRoute === "/signup") {
+          } else if(next.$$route.originalPath === "/signup") {
             if(user) {
               $location.path('/app');
             } else {
               $location.path('/signup')
             }
           } else {
-            if(user) {
-              $location.path(nextRoute);
-            } else {
+            if(!user) {
               $location.path("/login");
             }
           }

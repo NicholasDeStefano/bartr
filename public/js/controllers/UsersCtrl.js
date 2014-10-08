@@ -31,7 +31,10 @@
           }
         })
       })
-
+    $scope.showComments = false;
+    $scope.openComments = function() {
+      $scope.showComments = !$scope.showComments;
+    }
     function uploadImage(file) {
       var name = Math.round(Math.random()*10000) + '$' + file.name;
       delete file.name;

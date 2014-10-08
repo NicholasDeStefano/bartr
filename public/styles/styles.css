@@ -92,6 +92,7 @@
     bottom: 10px;
     height: auto ;
     width: 100%;
+    border: 1px solid #e7e7e7 !important;
   }
   article p {
     font-size: 1.4em;
@@ -247,6 +248,7 @@
     bottom: 10px;
     width: 100%;
     height: auto;
+    border: 1px solid #e7e7e7 !important;
   }
   .profile-pic {
     position: relative;

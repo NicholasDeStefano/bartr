@@ -15,6 +15,11 @@
             $scope.user = user;
           })
 
+        $scope.showComments = false;
+        $scope.openComments = function(post) {
+          $scope.post = post;
+          $scope.post.showComments = !$scope.post.showComments;
+        }
         $scope.addLike = function (post) {
           var likes = post.likes;
           var push = true;
@@ -33,7 +38,7 @@
             })
           }               
         }
-        // $scope.addComment = false;
+        $scope.comment = {};
         $scope.addComment = function(post, comment) {
           console.log(post);
           console.log(comment);
@@ -48,6 +53,7 @@
           $http.post('/api/posts/'+post._id+'/comments', c).success(function (data){
             console.log(data);
           })
+          $scope.comment.body = "";
 
         }
 
