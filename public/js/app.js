@@ -5,10 +5,10 @@ var app = angular.module('bartr', ['ngRoute', 'ngResource', 'angularFileUpload']
 app.config(function ($routeProvider) {
   $routeProvider
     .when('/',
-      { templateUrl:"/views/partials/home.html",    controller:"MainCtrl" }
+      { templateUrl:"/views/partials/sessions/landing.html",    controller:"IndexCtrl" }
     )
     .when('/login',
-      { templateUrl:"/views/partials/login.html",   controller:"LoginCtrl" }
+      { templateUrl:"/views/partials/sessions/login.html",   controller:"LoginCtrl" }
     )
     .when('/signup',
       { templateUrl:"/views/partials/signup.html",  controller:"SignupCtrl" }
@@ -47,7 +47,7 @@ app.run(function($rootScope, $http, $route, $location) {
             }
           } else {
             if(!user) {
-              $location.path("/login");
+              $location.path("/");
             }
           }
 

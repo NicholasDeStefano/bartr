@@ -2,6 +2,14 @@
     font-family: 'BrandonGrotesque';
     src: url(/fonts/BrandonGrotesque-Regular.otf);
 }
+@font-face {
+    font-family: 'BrandonGrotesque-Light';
+    src: url(/fonts/BrandonGrotesque-Light.otf);
+}
+@font-face {
+    font-family: 'BrandonGrotesque-Bold';
+    src: url(/fonts/BrandonGrotesque-Bold.otf);
+}
 
 @media screen and (max-width: 410px) {
   /*BODY / MAIN SECTION*/
@@ -19,7 +27,9 @@
   a:visited {
     color: #8561e6;
   }
-  /*NAVIGATION*/
+
+  /*****  NAVIGATION  *****/
+
   .navigation {
     border-bottom: 3px solid #8561e6;
     background-color: #FFF;
@@ -123,6 +133,8 @@
   }
 }
 
+
+/**********  DESKTOP STYLES  **********/
 @media screen and (min-width: 410px) {
 
   /*NORMAL STYLES*/
@@ -144,7 +156,67 @@
     display: none;
   }
 
-  /*NAVIGATION*/
+  /*****  LANDING PAGE  *****/
+  .landingNav {
+    width: 100%;
+    height: 107px;
+    background-color: #8561e6;
+  }
+
+  .landingNav h1 {
+    font-family: 'BrandonGrotesque-Bold';
+    text-align: center;
+    line-height: 107px;
+    font-size: 4em;
+    /*font-weight: bolder;*/
+    color: white;
+    padding: 0;
+    margin: 0;
+  }
+
+  .landingContent {
+    margin-top: 40px;
+    margin-left: 27%;
+    margin-right: 27%;
+  }
+
+  .landingContent h1 {
+    font-family: 'BrandonGrotesque-Bold';
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 2.5em;
+    letter-spacing: 2px;
+    font-weight: bolder;
+    color: #8561e6;
+    margin-top: 0;
+    margin-bottom: 20px;
+  }
+
+  .landingContent p {
+    font-family: 'BrandonGrotesque-Light';
+    text-align: center;
+    margin-bottom: 40px;
+  }
+
+  .landingContent h2 {
+    font-family: 'BrandonGrotesque-Bold';
+    margin: 0;
+    text-align: center;
+    color: #8561e6;
+    text-transform: uppercase;
+    font-size: 1.7em;
+  }
+
+  .landingContent a {
+    font-family: 'BrandonGrotesque-Bold';
+    text-transform: uppercase;
+    border: 3px solid #8561e6;
+    color: #8561e6;
+    font-size: 1.7em;
+    padding: 10px 20px;
+  }
+
+  /*****  NAVIGATION  *****/
 
   nav {
     width: 100%;
@@ -304,7 +376,8 @@ nav {
 }
 
 .center {
-  text-align: center
+  text-align: center;
+  margin-top: 30px;
 }
 
 .login {

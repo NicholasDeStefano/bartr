@@ -13,6 +13,9 @@
       } else if($location.path() === '/signup'){
         console.log("app page");
         $scope.indexTest = "hideNav";
+      } else if($location.path() === '/'){
+        console.log("landing page");
+        $scope.indexTest = "hideNav";
       } else {
         $scope.indexTest = "showNav";
       }
