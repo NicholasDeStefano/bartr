@@ -1,15 +1,19 @@
-<form class="profile-page" role="form">
-  <div class="form-group">
-    <label for="caption">Email</label>
-    {{user.local.email}}
-  </div>
-  <div class="form-group">
-    <img ng-src="{{s3Url}}{{user.imgRef}}" height='65px' width='65px'>
-  </div>
-  <div class="form-group">
-    <label for="photo">Show your #selfie</label>
-    <input id="photo" type="file" class="btn" ng-file-select="onFileSelect($files)">
-    <!-- <p class="help-block">Example block-level help text here.</p> -->
-  </div>
-  <button ng-click="updateUser(user)" class="btn btn-default">Done</button>
-</form>
+<div class="sticky" ng-include src="'views/includes/header.html'"></div>
+<section id="main">
+  <form class="profile-page" role="form">
+    <div class="form-group">
+      <label for="caption">Email</label>
+      {{user.local.email}}
+    </div>
+    <div class="form-group">
+      <img ng-src="{{s3Url}}{{user._id}}" height='65px' width='65px'>
+    </div>
+    <div class="form-group">
+      <label for="photo">Show your #selfie</label>
+      <input id="photo" type="file" class="btn" ng-file-select="onFileSelect($files)">
+      <!-- <p class="help-block">Example block-level help text here.</p> -->
+    </div>
+    <button ng-click="updateUser(user)" class="btn btn-default">Done</button>
+  </form>
+</section>
+<div class="sticky-side" ng-include src="'views/includes/sidenav.html'"></div>

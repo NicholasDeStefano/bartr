@@ -1,6 +1,5 @@
 'use strict';
 
-
 (function(){
 
   app.controller('MainCtrl', function($scope, $http, $location, $upload, $rootScope) {

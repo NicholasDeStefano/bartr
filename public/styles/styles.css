@@ -156,6 +156,21 @@
     display: none;
   }
 
+  .sticky {
+    position: fixed;
+    width: 100%;
+    z-index: 9999;
+  }
+
+  .sticky-side {
+    position: fixed;
+    left: 65%;
+    width: 21%;
+    margin-top: 20px;
+    margin-left: 4%;
+    top: 140px
+  }
+
   /*****  LANDING PAGE  *****/
   .landingNav {
     width: 100%;
@@ -285,8 +300,6 @@
   }
 
 
-
-
   /*****  NAVIGATION  *****/
 
   nav {
@@ -326,14 +339,7 @@
 
   /*SIDE NAV*/
 
-  aside {
-    float: left;
-    margin-top: 20px;
-    margin-left: 4%;
-    margin-right: 10%;
-    width: 21%;
-    top: 140px
-  }
+  aside {}
 
   aside ul {
     list-style: none;
@@ -359,6 +365,7 @@
 
   section {
     width: 100%;
+    margin-top: 107px;
   }
 
   section article {

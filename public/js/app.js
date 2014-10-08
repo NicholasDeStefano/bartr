@@ -66,9 +66,9 @@ app.run(function($rootScope, $http, $route, $location) {
 //   return { message: "I'm data form a service" }
 // })
 
-// app.directive('superman', function() {
+// app.directive('sticky', function() {
 //   return {
-//     restrict: "E",
-//     template: "<div> Here I am to save the day </div>"
+//     restrict: "A",
+    
 //   }
 // })
