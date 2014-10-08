@@ -7,17 +7,10 @@
 
     $rootScope.$on('$routeChangeStart', function(event, next, current) {
       console.log("route change on index cntrl");
-      if($location.path() === '/login') {
-        console.log("login page");
-        $scope.indexTest = "hideNav";
-      } else if($location.path() === '/signup'){
-        console.log("app page");
-        $scope.indexTest = "hideNav";
-      } else if($location.path() === '/'){
-        console.log("landing page");
-        $scope.indexTest = "hideNav";
+      if($location.path() === '/app') {
+        $scope.backFeed = false;
       } else {
-        $scope.indexTest = "showNav";
+        $scope.backFeed = true;
       }
     });
     // if($location.path() === '/login') {

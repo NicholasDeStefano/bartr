@@ -25,6 +25,7 @@ exports.create = function (req, res) {
 exports.update = function (req, res) {
   console.log(req.body);
   var postId = req.body._id;
+  delete req.body.comments;
   delete req.body.user;
   delete req.body._id;
   Post.findByIdAndUpdate(postId, req.body, function (err, post) {

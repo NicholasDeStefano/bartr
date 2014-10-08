@@ -32,8 +32,10 @@
         })
       })
     $scope.showComments = false;
-    $scope.openComments = function() {
-      $scope.showComments = !$scope.showComments;
+    $scope.openComments = function(post) {
+      console.log("opening post", post);
+      $scope.post = post;
+      $scope.post.showComments = !$scope.post.showComments;
     }
     function uploadImage(file) {
       var name = Math.round(Math.random()*10000) + '$' + file.name;

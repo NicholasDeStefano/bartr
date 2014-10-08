@@ -19,13 +19,140 @@
   }
   #main {
     padding-top: 15px;
-    background: #f2f2f2; /*for a lil darker gray e7e7e7*/
+    /*background: #f2f2f2; for a lil darker gray e7e7e7*/
   }
   a:link {
     color: #8561e6;
   }
   a:visited {
     color: #8561e6;
+  }
+
+  /****** LANDING PAGE *****/
+  .landingNav {
+    width: 100%;
+    height: 52px;
+    background-color: #8561e6;
+  }
+
+  .landingNav h1 {
+    font-family: 'BrandonGrotesque-Bold';
+    text-align: center;
+    line-height: 52px;
+    font-size: 4em;
+    color: white;
+    padding: 0;
+    margin: 0;
+  }
+
+  .landingContent {
+    margin-top: 40px;
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+
+  .landingContent h1 {
+    font-family: 'BrandonGrotesque-Bold';
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 2.5em;
+    letter-spacing: 2px;
+    font-weight: bolder;
+    color: #8561e6;
+    margin-top: 0;
+    margin-bottom: 20px;
+  }
+
+  .landingContent p {
+    font-family: 'BrandonGrotesque-Light';
+    text-align: center;
+    font-size: 1.3em;
+    margin-bottom: 40px;
+  }
+
+  .landingContent h2 {
+    font-family: 'BrandonGrotesque-Bold';
+    margin: 0;
+    text-align: center;
+    color: #8561e6;
+    text-transform: uppercase;
+    font-size: 1.7em;
+  }
+
+  .landingContent a {
+    font-family: 'BrandonGrotesque-Bold';
+    text-transform: uppercase;
+    border: 3px solid #8561e6;
+    color: #8561e6;
+    font-size: 1.7em;
+    padding: 10px 20px;
+  }
+
+  /*****  LOGIN PAGE  *****/
+
+  #login {
+    text-align: center;
+  }
+
+  #login h1 {
+    font-family: 'BrandonGrotesque-Bold';
+    color: #8561e6;
+    margin-bottom: 20px;
+  }
+
+  #login input {
+    width: 50%;
+    line-height: 3em;
+    margin-bottom: 20px;
+  }
+
+  #login ::-webkit-input-placeholder {
+    font-family: 'BrandonGrotesque-Light';
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 1em;
+    letter-spacing: 1px;
+  }
+
+  #login a {
+    font-family: 'BrandonGrotesque-Light';
+    color: #8561e6;
+    font-size: 1.25em;
+    text-decoration: underline;
+  }
+
+  .login-btn {
+    margin: 0 auto;
+    background-color: #8561e6;
+    width: 35%;
+    margin-top: 20px;
+  }
+
+  #login p {
+    letter-spacing: 2px;
+    text-transform: uppercase;  
+    font-size: 1.5em; 
+    color: #ffffff;
+    cursor: pointer;
+    padding: 10px 0;
+  }
+
+  #login span {
+    font-family: 'BrandonGrotesque-Light';
+    font-size: 1.25em;
+    margin-right: 5px;
+  }
+
+  .signup-btn {
+    background-color: #8561e6;
+    color: #ffffff;
+    border: 0;
+    letter-spacing: 2px;
+    text-transform: uppercase;  
+    font-size: 1.5em;
+    padding: 10px 0;
+    width: 30%;
+    margin-bottom: 20px;
   }
 
   /*****  NAVIGATION  *****/
@@ -128,9 +255,44 @@
     bottom: 2px;
   }
   article:last-child {
-    padding-bottom: 140px;
-    background-color: #f2f2f2;
+    padding-bottom: 100px;
+    /*background-color: #f2f2f2;*/
   }
+
+  /*****  COMMENTS  *****/
+  .comment {
+    clear: left;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-bottom: 15px;
+  }
+
+  .commentBody {
+    padding: 5px 0;
+    border-bottom: 1px solid #e7e7e7;
+  }
+
+  .commentBody span {
+    font-size: 1.4em;
+    padding-left: 10px;
+  }
+
+  .commentText {
+    font-size: 1.5em;
+    cursor: pointer;
+  }
+
+
+
+  .fa .fa-comment {
+    font-size: 1.5em;
+  }
+
+  .supersmallImg {
+    width: 30px;
+    height: 30px;
+  }
+
 }
 
 
@@ -355,7 +517,7 @@
     padding-left: 10px;
   }
 
-  /*MAIN FEED*/
+  /*****  MAIN FEED  *****/
   #main {
     float: left;
     width: 51%;
@@ -370,6 +532,10 @@
 
   section article {
     clear: left;
+  }
+
+  article:last-child {
+    margin-bottom: 40px;
   }
 
   article p {
@@ -425,14 +591,53 @@
     bottom: 2px;
   }
 
+  /*****  COMMENTS  *****/
+  
   .comment {
     clear: left;
+    margin-left: 5%;
+  }
+
+  .commentBody{
+    padding: 5px 0;
+    border-bottom: 1px solid #e7e7e7;
+  }
+
+  .commentText {
+    font-size: 1.3em;
+    cursor: pointer;
+  }
+
+  .fa .fa-comment {
+    font-size: 1.3em;
   }
 
   .supersmallImg {
     width: 30px;
     height: 30px;
   }
+
+  .profile-page {
+    text-align: center;
+  }
+
+  .profile-page label{
+    font-size: 2em;
+  }
+
+  .profile-page span{
+    font-size: 2em;
+    color: #8561e6;
+    text-decoration: underline;
+  }
+
+  #photo {
+    margin: 0 auto;
+    text-align: center
+  }
+
+
+
 }
 
 body {

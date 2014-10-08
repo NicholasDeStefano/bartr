@@ -46,9 +46,9 @@
             });
         }
         $scope.submitPost = function(post) {
-            console.log("post", post.title);
+            console.log("post", post);
             if(post.title == undefined || post.caption == undefined || $scope.image == undefined){
-                alert("Post must have a title, image, and caption.");
+                return;
             } else {
             uploadImage($scope.image);
             console.log("image", $scope.image);

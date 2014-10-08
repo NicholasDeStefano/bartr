@@ -1,19 +1,19 @@
 <div class="sticky" ng-include src="'views/includes/header.html'"></div>
-<section>  
-  <div id="main" class="post-upload">
+<section id="main">  
+  <div class="post-upload">
     <form role="form">
       <div class="form-group">
         <label for="title">What do you have?*</label>
-        <input type="text" class="form-control" id="title" placeholder="ex: Beyonce tickets" ng-model="post.title">
+        <input type="text" class="form-control" id="title" name="title" placeholder="ex: Beyonce tickets" ng-model="post.title" required>
       </div>
       <div class="form-group">
         <label for="photo">Prove it with a pic*</label>
-        <input id="photo" type="file" class="btn" ng-file-select="onFileSelect($files)">
+        <input id="photo" type="file" class="btn" ng-file-select="onFileSelect($files)" required>
         <!-- <p class="help-block">Uploaded!</p> MAKE THIS A NOTIFICATION THAT THE IMAGE HAS BEEN UPLOADED -->
       </div>
       <div class="form-group">
         <label for="caption">Tell me more*</label>
-        <input type="text" class="form-control" id="caption" placeholder="ex: Two 300 levels tickets to Queen B / J @ MetLife 06/11." ng-model="post.caption">
+        <input type="text" class="form-control" id="caption" name="caption" placeholder="ex: Two 300 levels tickets to Queen B / J @ MetLife 06/11." ng-model="post.caption" required>
       </div>
       <p class="pull-right">* required</p>
       <button ng-click="submitPost(post)" class="btn btn-default">Upload</button>

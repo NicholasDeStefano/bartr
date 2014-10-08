@@ -16,6 +16,7 @@
 
         $scope.showComments = false;
         $scope.openComments = function(post) {
+          console.log("opening post", post);
           $scope.post = post;
           $scope.post.showComments = !$scope.post.showComments;
         }
@@ -31,7 +32,7 @@
           } 
           if(push) {
             post.likes.push($scope.user._id);
-            $http.post("/api/posts/:id", post)
+            $http.post("/api/posts/"+post._id, post)
             .success(function (data) {
               console.log("data returned", data);
             })
