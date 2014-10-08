@@ -1,15 +1,31 @@
-<div class="col-sm-6 col-sm-offset-3">
+<div ng-include src="'views/includes/header.html'"></div>
+<div class="alert alert-danger center" ng-show="page.wrongShit">
+  {{page.alert}}
+</div>
+<div id="login">
+  <h1>Welcome To Bartr</h1>
+  <form ng-model="user">
+    <input type="email" placeholder="Email*" class="login-input" name="email" ng-model="user.email" ng-minlength=3 required /><br>
+    <input type="password" name="password" class="login-input" placeholder="Password*" ng-model="user.password" required>
+    <br>  
+    <!-- <span class="pull-right">*required</span> -->
+
+    <button class="signup-btn" ng-click="signup(user)">Sign Up</button><br> 
+    <span>Already a member?</span><em><a href="/#/login">Click here</a></em>
+  </form>
+
+</div>
+
+
+<!-- <div class="col-sm-6 col-sm-offset-3">
 
   <h1><span class="fa fa-sign-in"></span> Signup</h1>
 
-  <!-- show any messages that come back with authentication -->
-  
     <div class="alert alert-danger" ng-hide="true">
      Alert message
     </div>
 
 
-  <!-- LOGIN FORM -->
   <form ng-model="user">
     <div class="form-group">
       <label>Email</label>
@@ -28,3 +44,4 @@
   <p>Already have an account? <a href="/#/login">Login</a></p>
 
 </div>
+ -->

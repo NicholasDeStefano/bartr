@@ -1,12 +1,15 @@
 <div ng-include src="'views/includes/header.html'"></div>
+<div class="alert alert-danger center" ng-show="page.wrongShit">
+  {{page.alert}}
+</div>
 <div id="login">
   <h1>Welcome Back</h1>
   <form ng-model="user">
     <input type="text" class="login-input" placeholder="Email*" ng-model="user.email"><br>
     <input type="password" class="login-input" placeholder="Password*" ng-model="user.password"><br>
-    <a>Forgot your password?</a><br>
-    <button ng-click="login(user)" class="login-btn">Log In</button><br>
-    <span>Not a member yet?<span><a>Become one</a>
+    <em><a>Forgot your password?</a></em><br>
+    <div class="login-btn"><p ng-click="login(user)">Log In</p></div>
+    <span>Not a member yet?</span><em><a href="/#/signup">Become one</a></em>
   </form>
 
 </div>

@@ -11,7 +11,7 @@ app.config(function ($routeProvider) {
       { templateUrl:"/views/partials/sessions/login.html",   controller:"LoginCtrl" }
     )
     .when('/signup',
-      { templateUrl:"/views/partials/signup.html",  controller:"SignupCtrl" }
+      { templateUrl:"/views/partials/sessions/signup.html",  controller:"SignupCtrl" }
     )
     .when('/profile',
       { templateUrl: "views/partials/profile.html", controller: "UsersCtrl" }
