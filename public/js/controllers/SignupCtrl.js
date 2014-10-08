@@ -10,14 +10,12 @@
       })
 
     $scope.signup = function(user) {
-
+      user.email = user.email.toLowerCase();
       $http.post("/signup", user)
         .success(function (user) {
           console.log('user', user);
         }).then(function (user) {
           $location.path('/profile');
-        }).error(function(err) {
-          console.log(err);
         })
 
     }

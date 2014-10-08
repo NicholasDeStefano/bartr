@@ -9,6 +9,7 @@
     });
 
     $scope.login = function (user) {
+      user.email = user.email.toLowerCase();
       $http.post("/login", user).success(function (user) {
         $location.path('/app');
       });
