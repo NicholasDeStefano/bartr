@@ -47,9 +47,9 @@
         }
         $scope.submitPost = function(post) {
             console.log("post", post);
-            if(post.title == undefined || post.caption == undefined || $scope.image == undefined){
-                return;
-            } else {
+            // if(post.title == undefined || post.caption == undefined || $scope.image == undefined){
+            //     return;
+            // } else {
             uploadImage($scope.image);
             console.log("image", $scope.image);
             $scope.post.user = $scope.user._id;
@@ -62,7 +62,7 @@
             })
             
             $scope.post = {};
-            }
+            // }
         }
 
         $scope.onFileSelect = function ($files) {
