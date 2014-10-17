@@ -1,5 +1,7 @@
 <div class="sticky" ng-include src="'views/includes/header.html'"></div>
-<section id="main">  
+<section id="main">
+  {{page.error}}
+  {{page.wrong}}
   <div class="post-upload">
     <form role="form">
       <div class="form-group">
@@ -19,6 +21,7 @@
       <a ng-click="submitPost(post)" class="btn btn-default">Upload</a><br>
       <a href='/#/app' class="btn btn-default">Nevermind</a>
     </form>
+    {{page.progress}}
   </div>
 </section>
 <div class="sticky-side" ng-include src="'views/includes/sidenav.html'"></div>

@@ -1,12 +1,5 @@
 module.exports = function(app, passport) {
 
-  //  /auth/twitter/callback
-  app.get('/auth/twitter', passport.authenticate('twitter'));
-  app.get('/auth/twitter/callback', 
-    passport.authenticate('twitter', { successRedirect: '/',
-                                     failureRedirect: '/login' }));
-
-
   // Users
   var users = require('../controllers/users');
   app.get('/api/users', users.index);

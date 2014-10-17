@@ -62,6 +62,7 @@ module.exports = function(passport) {
                 var newUser            = new User();
 
                 // set the user's local credentials
+                newUser.imgRef = '1501$logo.png';
                 newUser.local.username = req.body.username;
                 newUser.local.email    = email;
                 newUser.local.password = newUser.generateHash(password);
@@ -108,17 +109,5 @@ module.exports = function(passport) {
         });
 
     }));
-
-    passport.use(new TwitterStrategy({
-        consumerKey: 'rT2QzyISD4RiV5CMYihogWoZC',
-        consumerSecret: 'K6Bcdsf8ZVzV8ZHFQALSHaGsKMiXv02dhy5IJEMM3QUiyeWshM',
-        callbackURL: "http://www.letsbartr.com/#/profile"
-    },
-    function(token, tokenSecret, profile, done){
-        console.log("token", token);
-        console.log("tokenSecret", tokenSecret);
-        console.log("profile", profile);
-    }
-    ))
 
 };

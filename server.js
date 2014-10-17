@@ -18,8 +18,9 @@ var options = { server: { socketOptions: { keepAlive: 1, connectTimeoutMS: 30000
                 replset: { socketOptions: { keepAlive: 1, connectTimeoutMS : 30000 } } };
 
 var port = process.env.PORT || 1529;
-var mongodbUri = 'mongodb://heroku_app29898300:cqv8c19fainnkmokt5ldobb57d@ds039000.mongolab.com:39000/heroku_app29898300';
+// var mongodbUri = 'mongodb://heroku_app29898300:cqv8c19fainnkmokt5ldobb57d@ds039000.mongolab.com:39000/heroku_app29898300';
 var mongooseUri = uriUtil.formatMongoose(mongodbUri);
+var mongodbUri = config.db;
 mongoose.connect(mongooseUri, options);
 
 require('./config/passport')(passport);
@@ -46,4 +47,5 @@ require('./config/routes')(app, passport);
 
 app.listen(port);
 console.log("App is listening on port " + port);
+console.log("mongo is on " + mongodbUri);
 exports = module.exports = app;

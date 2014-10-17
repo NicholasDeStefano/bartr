@@ -1,5 +1,6 @@
 <div class="sticky" ng-include src="'views/includes/header.html'"></div>
 <section id="main">
+  {{page.progress}}
   <form class="profile-page" role="form">
     <div class="form-group">
       <label for="caption">Email</label>
@@ -11,7 +12,7 @@
     </div>
     <div class="form-group">
       <!-- <div ng-if="{{s3Url}}{{user._id}}"> -->
-        <img ng-src="{{s3Url}}{{user._id}}" height='115x' width='115px'>
+        <img ng-src="{{s3Url}}" height='115x' width='115px'>
       <!-- </div> -->
     </div>
     <div class="form-group">

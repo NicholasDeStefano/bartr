@@ -27,13 +27,10 @@ exports.signup = function (req, res) {
 }
 
 exports.login = function (req, res) {
-  console.log("req", req);
-  console.log("res", res);
- res.send(req.user);
+  res.send(req.user);
 }
 
 exports.currentUser = function (req, res) {
-  // console.log("req", req);
   res.send(req.user);
 }
 

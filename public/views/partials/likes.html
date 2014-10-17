@@ -2,10 +2,10 @@
 <section id="main">
   <article ng-repeat="post in usersLikes">
     <header>
-      <img class="profile-pic" ng-src="https://s3.amazonaws.com/bartr-imgs/s3UploadExample/{{post.user._id}}"/>
+      <img class="profile-pic" ng-src="https://s3.amazonaws.com/bartr-imgs/uploads/{{post.user._id}}"/>
     </header>
 
-    <img ng-src="https://s3.amazonaws.com/bartr-imgs/s3UploadExample/{{post.imgRef}}" class="mainImg"/>
+    <img ng-src="https://s3.amazonaws.com/bartr-imgs/uploads/{{post.imgRef}}" class="mainImg"/>
     <div class="postContent">
       <h1 class="mobi-hide">{{post.title}}</h1>
       <p>{{post.caption}}</p>
@@ -22,7 +22,7 @@
         <span class="commentText" ng-click="openComments(post)">{{post.comments.length}} comments</span>
         <i class="fa fa-caret-down pull-right"></i>
         <div class="commentBody" ng-show="post.showComments" ng-repeat="comment in post.comments">
-          <img ng-src="https://s3.amazonaws.com/bartr-imgs/s3UploadExample/{{comment.user}}" class="supersmallImg"/>
+          <img ng-src="https://s3.amazonaws.com/bartr-imgs/uploads/{{comment.user}}" class="supersmallImg"/>
           <span>{{comment.body}}</span>
         </div>
       </div>

@@ -5,7 +5,7 @@
 
   app.controller('CreatePostsCtrl', function($scope, $http, $location, $upload, $rootScope, User) {
         $scope.imageUploads = [];
-
+        $scope.page = {};
         $scope.post = {};
         $scope.image;
         $scope.user = {};
@@ -20,7 +20,6 @@
           });
 
         function uploadImage(file) {
-            console.log("file being uploaded", file);
             var name = Math.round(Math.random()*10000) + '$' + file.name;
             delete file.name;
             file['name'] = name;
@@ -30,39 +29,49 @@
                     url: 'https://bartr-imgs.s3.amazonaws.com/',
                     method: 'POST',
                     data: {
-                        'key' : 's3UploadExample/' + file.name,
+                        'key' : 'uploads/' + file.name,
                         'acl' : 'public-read',
                         'Content-Type' : file.type,
                         'AWSAccessKeyId': s3Params.AWSAccessKeyId,
-                        'success_action_status' : '201',
+                        'success_action_status' : 'http://localhost:1529/#/app',
                         'Policy' : s3Params.s3Policy,
                         'Signature' : s3Params.s3Signature
                     },
                     file: file,
-                });
+                }).progress(function(evt) {
+                    $scope.page.progress = parseInt(100.0 * evt.loaded / evt.total);
+                }).success(function(data, status, headers, config) {
+                    // file is uploaded successfully
+                    $scope.post.user = $scope.user._id;
+                    $scope.post.imgRef = config.file.name;
+                    $http.post('/api/posts', $scope.post).success(function(response) {
+                        console.log("successfull res", response);
+                    }).then(function(){
+                        $location.path('/app');
+                    })
+                }).error(function(){
+                    $scope.page.wrong = "Something went wrong...";
+                })
             })
-            .then(function(response) {
-                console.log("response", response)
-            });
         }
         $scope.submitPost = function(post) {
             console.log("post", post);
-            // if(post.title == undefined || post.caption == undefined || $scope.image == undefined){
-            //     return;
-            // } else {
+            if(!post.title || !post.caption || !$scope.image){
+                $scope.page.error = "You need to fill all this shit out bitch";
+            } else {
             uploadImage($scope.image);
-            console.log("image", $scope.image);
-            $scope.post.user = $scope.user._id;
-            $scope.post.imgRef = $scope.image.name;
-            console.log("post about to send", post);
-            $http.post('/api/posts', $scope.post).success(function(response) {
-                console.log("successfull res", response);
-            }).then(function(){
-                $location.path('/app');
-            })
+            // console.log("image", $scope.image);
+            // $scope.post.user = $scope.user._id;
+            // $scope.post.imgRef = $scope.image.name;
+            // console.log("post about to send", post);
+            // $http.post('/api/posts', $scope.post).success(function(response) {
+            //     console.log("successfull res", response);
+            // }).then(function(){
+            //     $location.path('/app');
+            // })
             
-            $scope.post = {};
-            // }
+            // $scope.post = {};
+            }
         }
 
         $scope.onFileSelect = function ($files) {

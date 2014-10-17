@@ -4,19 +4,20 @@
 
   app.controller('SignupCtrl', function($scope, $http, $location) {
     
-    $http.get("/signup")
-      .success(function (data) {
-        console.log(data);
-      })
+    $scope.page = {};
+    $scope.page.wrongShit = "false";  
 
     $scope.signup = function(user) {
       user.email = user.email.toLowerCase();
       $http.post("/signup", user)
         .success(function (user) {
-          console.log('user', user);
-        }).then(function (user) {
           $location.path('/profile');
-        })
+        }).error(function(result){
+          console.log("error", result);
+          $scope.page.wrongShit = "true";
+          console.log($scope.page.wrongShit)
+          $scope.page.alert = "That email is already taken.";
+        });
 
     }
   

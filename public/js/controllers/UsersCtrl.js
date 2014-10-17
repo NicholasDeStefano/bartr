@@ -5,20 +5,20 @@
   app.controller('UsersCtrl', function($scope, $route, $upload, $http, $location, User) {
 
     $scope.user;
+    $scope.page = {};
 
     $http.get('/profile')
       .success(function (user) {
         console.log(user);
         $scope.user = user;
         $scope.LoggedIn = true;
+        $scope.s3Url = "https://s3.amazonaws.com/bartr-imgs/uploads/" + $scope.user.imgRef;
+
         console.log($scope.LoggedIn)
       }).error(function(data, status, headers, config) {
         $scope.LoggedIn = false;
         console.log($scope.notLoggedIn)
       });
-    $scope.s3Url = "https://s3.amazonaws.com/bartr-imgs/s3UploadExample/";
-    $scope.image;
-    $scope.usersLikes = [];
     $http.get('/api/posts')
       .success(function (posts) {
         posts.forEach(function (post) {
@@ -47,27 +47,35 @@
                 url: 'https://bartr-imgs.s3.amazonaws.com/',
                 method: 'POST',
                 data: {
-                    'key' : 's3UploadExample/' + $scope.user._id,
+                    'key' : 'uploads/' + file.name,
                     'acl' : 'public-read',
                     'Content-Type' : file.type,
                     'AWSAccessKeyId': s3Params.AWSAccessKeyId,
-                    'success_action_status' : '201',
+                    'success_action_status' : 'http://localhost:1529/#/app',
                     'Policy' : s3Params.s3Policy,
                     'Signature' : s3Params.s3Signature
                 },
                 file: file,
-            });
+            }).progress(function(evt) {
+                    $scope.page.progress = parseInt(100.0 * evt.loaded / evt.total);
+                }).success(function(data, status, headers, config) {
+                    // file is uploaded successfully
+                    $scope.user.imgRef = config.file.name;
+
+                    $http.post('/api/users/:id', $scope.user).success(function(response) {
+                        console.log(response);
+                    }).then(function(){
+                        $location.path('/app');
+                    })
+                }).error(function(){
+                    $scope.page.wrong = "Something went wrong...";
+                })
         })
     }
 
     $scope.updateUser = function (user) {
       uploadImage($scope.image);
-      // $scope.user.imgRef = $scope.image.name;
-      $http.post('/api/users/:id', $scope.user).success(function(response) {
-          console.log(response);
-      }).then(function(){
-          $location.path('/app');
-      })
+      
     };
 
     $scope.onFileSelect = function ($files) {

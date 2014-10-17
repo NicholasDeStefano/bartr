@@ -17,11 +17,12 @@ createS3Policy = function(contentType, callback) {
     var s3Policy = {
         'expiration': getExpiryTime(),
         'conditions': [
-            ['starts-with', '$key', 's3UploadExample/'],
+            ['starts-with', '$key', 'uploads/'],
             {'bucket': config.bucket},
             {'acl': 'public-read'},
             ['starts-with', '$Content-Type', contentType],
-            {'success_action_status' : '201'}
+            {'success_action_status' : 'http://localhost:1529/#/app'},
+            ["content-length-range", 0, 4048576]
         ]
     };
 
