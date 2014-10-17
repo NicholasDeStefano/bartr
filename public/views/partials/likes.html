@@ -2,7 +2,7 @@
 <section id="main">
   <article ng-repeat="post in usersLikes">
     <header>
-      <img class="profile-pic" ng-src="https://s3.amazonaws.com/bartr-imgs/uploads/{{post.user._id}}"/>
+      <img class="profile-pic" ng-src="https://s3.amazonaws.com/bartr-imgs/uploads/{{post.user.imgRef}}"/>
     </header>
 
     <img ng-src="https://s3.amazonaws.com/bartr-imgs/uploads/{{post.imgRef}}" class="mainImg"/>
