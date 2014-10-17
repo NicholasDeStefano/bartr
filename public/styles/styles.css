@@ -636,6 +636,9 @@
     text-align: center
   }
 
+  aside .fs,a {
+    color: #8561e6 ;
+  }
 
 
 }
@@ -675,5 +678,9 @@ nav {
 
 .hideNav {
   display: none;
+}
+
+.fa.fa-heart {
+  color: #8561e6;
 }
 

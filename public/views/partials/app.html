@@ -1,9 +1,10 @@
 <div class="sticky" ng-include src="'views/includes/header.html'"></div>
 <section id="main">
+  <div name="top"></div>
   <article ng-repeat="post in posts">
     <header>
       <img class="profile-pic" ng-src="https://s3.amazonaws.com/bartr-imgs/uploads/{{post.user.imgRef}}"/>
-      <a ng-show="{{user._id === post.user._id}}" href="/#/posts/{{post._id}}">Edit Post</a>
+      <span> {{post.user.local.username}} </span>
       <!-- <span class="post-time mobi-nav">3h</span> -->
     </header>
 
@@ -12,20 +13,24 @@
       <h1 class="mobi-hide">{{post.title}}</h1>
       <p>{{post.caption}}</p>
       <div class="post-likes" ng-click="addLike(post)">
-        <i class="fa fa-heart-o"></i>
+        <i ng-hide="post.userLike" class="fa fa-heart-o"></i>
+        <i ng-show="post.userLike" class="fa fa-heart"></i>
         <span>{{ post.likes.length }}</span>
       </div>
       <div class="post-likes" ng-click="sendBartr(post)">
         <i class="fa fa-retweet"></i>
         <span>make a bartr</span>
       </div>
+      <a ng-show="{{user._id === post.user._id}}" href="/#/posts/{{post._id}}">Edit Post</a>
       <div class="comment">
         <i class="fa fa-comment"></i>
         <span class="commentText" ng-click="openComments(post)">{{post.comments.length}} comments</span>
-        <i class="fa fa-caret-down pull-right"></i>
+        <i ng-hide="post.showComments" class="fa fa-caret-up pull-right"></i>
+        <i ng-show="post.showComments" class="fa fa-caret-down pull-right"></i>
         <div class="commentBody" ng-show="post.showComments" ng-repeat="comment in post.comments">
-          <img ng-src="https://s3.amazonaws.com/bartr-imgs/uploads/{{comment.user}}" class="supersmallImg"/>
-          <span>{{comment.body}}</span>
+          <img ng-src="https://s3.amazonaws.com/bartr-imgs/uploads/{{comment.user.imgRef}}" class="supersmallImg"/>
+          <span>{{comment.user.username}}</span>
+          <p>{{comment.body}}</p>
         </div>
       </div>
       <div ng-show="post.showComments" class="comment commentPost">

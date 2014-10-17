@@ -3,16 +3,27 @@
 (function(){
 
   app.controller('MainCtrl', function($scope, $http, $location, $upload, $rootScope) {
-        $http.get("/api/app")
-          .success(function (data) {
-            console.log(data);
-            $scope.posts = data;
-         });
         $http.get('/profile')
           .success(function (user) {
             console.log("user", user);
             $scope.user = user;
           })
+
+        $http.get("/api/app")
+          .success(function (data) {
+            var userId = $scope.user._id;
+            var _data = data.map(function(post){
+              post.likes.forEach(function(like){
+                if(like === userId){
+                  post.userLike = true;
+                  return post;
+                }
+              })
+            })
+            console.log(data);
+            $scope.posts = data;
+         });
+        
 
         $scope.showComments = false;
         $scope.openComments = function(post) {
@@ -25,13 +36,19 @@
           var push = true;
           for(var i = 0; i < likes.length; i++){
             if(likes[i] === $scope.user._id){
-              console.log("hello");
+              var rm = likes.indexOf(likes[i]);
+              post.likes.splice(rm, 1);
+              post.userLike = false;
               push = false;
-              break;
+              $http.post("/api/posts/"+post._id, post)
+              .success(function (data) {
+                console.log("data returned", data);
+              })
             }
           } 
           if(push) {
             post.likes.push($scope.user._id);
+            post.userLike = true;
             $http.post("/api/posts/"+post._id, post)
             .success(function (data) {
               console.log("data returned", data);
@@ -40,12 +57,15 @@
         }
         $scope.comment = {};
         $scope.addComment = function(post, comment) {
-          console.log(post);
-          console.log(comment);
-          console.log($scope.user);
+          console.log('post', post);
+          console.log('comment', comment);
+          console.log("user", $scope.user);
           var c = {
             body: comment.body,
-            user: $scope.user._id,
+            user: {
+              username: $scope.user.local.username,
+              imgRef: $scope.user.imgRef
+            },
             post: post._id
           };
           console.log(c);
@@ -68,7 +88,7 @@
 
             $http.post('/submit', info)
               .success(function (data) {
-                alert("letsbartr@gmail.com has been emailed about your trade!");
+                alert("Bartr request sent.\nCheck your inbox.");
             })
         };
 

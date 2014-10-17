@@ -39,6 +39,7 @@
                     },
                     file: file,
                 }).progress(function(evt) {
+                    $scope.page.upProg = true;
                     $scope.page.progress = parseInt(100.0 * evt.loaded / evt.total);
                 }).success(function(data, status, headers, config) {
                     // file is uploaded successfully
@@ -57,7 +58,7 @@
         $scope.submitPost = function(post) {
             console.log("post", post);
             if(!post.title || !post.caption || !$scope.image){
-                $scope.page.error = "You need to fill all this shit out bitch";
+                $scope.page.error = "You need a title, image, and caption.";
             } else {
             uploadImage($scope.image);
             // console.log("image", $scope.image);

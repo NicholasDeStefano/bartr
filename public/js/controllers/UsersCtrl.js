@@ -6,6 +6,7 @@
 
     $scope.user;
     $scope.page = {};
+    $scope.usersLikes = [];
 
     $http.get('/profile')
       .success(function (user) {
@@ -25,6 +26,7 @@
           if(post.likes.length > 0){
             post.likes.forEach(function (like) {
               if(like === $scope.user._id) {
+                console.log("heres one!");
                 $scope.usersLikes.push(post);
               }
             })
@@ -57,6 +59,7 @@
                 },
                 file: file,
             }).progress(function(evt) {
+                    $scope.page.upProg = true;
                     $scope.page.progress = parseInt(100.0 * evt.loaded / evt.total);
                 }).success(function(data, status, headers, config) {
                     // file is uploaded successfully
@@ -90,7 +93,27 @@
         }).then(function(result){
           $location.path('/login');
         })
-    }     
+    }
+
+    $scope.unlike = function (post) {
+      console.log(post);
+      var result = $scope.usersLikes.filter(function( obj ) {
+        return obj._id === post._id;
+      });
+      post.likes.forEach(function( like ){
+        if(like === $scope.user._id){
+          var l = post.likes.indexOf(like);
+          post.likes.splice(l, 1);
+          $http.post("/api/posts/"+post._id, post)
+            .success(function (data) {
+            $scope.usersLikes.splice(result, 1);
+            console.log("data returned", data);
+          })
+        }
+      })
+      
+      console.log("result", result)
+    }
 
 
   })

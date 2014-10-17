@@ -23,8 +23,7 @@ module.exports = function(app, passport) {
   app.get('/api/posts/:id', posts.post);
   app.delete('/api/posts/:id', posts.delete);
 
-  app.post('/api/posts/:id/comments', posts.addComment)
-
+  app.post('/api/posts/:id/comments', posts.addComment);
 
   app.get('/api/app', isLoggedIn, posts.index);
 

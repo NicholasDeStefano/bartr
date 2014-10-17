@@ -9,8 +9,8 @@
     <div class="postContent">
       <h1 class="mobi-hide">{{post.title}}</h1>
       <p>{{post.caption}}</p>
-      <div class="post-likes" ng-click="addLike(post)">
-        <i class="fa fa-heart-o"></i>
+      <div class="post-likes" ng-click="unlike(post)">
+        <i class="fa fa-heart"></i>
         <span>{{ post.likes.length }}</span>
       </div>
       <div class="post-likes" ng-click="sendBartr(post)">

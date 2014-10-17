@@ -3,7 +3,10 @@ var mongoose = require('mongoose'),
 
 var CommentSchema = new mongoose.Schema({
   body: String,
-  user: { type: Schema.ObjectId, ref: 'User' },
+  user: { 
+    username: String,
+    imgRef: String
+  },
   post: { type: Schema.ObjectId, ref: 'Post' }
 });
 
