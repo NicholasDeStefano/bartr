@@ -1,5 +1,12 @@
 module.exports = function(app, passport) {
 
+  //  /auth/twitter/callback
+  app.get('/auth/twitter', passport.authenticate('twitter'));
+  app.get('/auth/twitter/callback', 
+    passport.authenticate('twitter', { successRedirect: '/',
+                                     failureRedirect: '/login' }));
+
+
   // Users
   var users = require('../controllers/users');
   app.get('/api/users', users.index);
@@ -34,12 +41,12 @@ module.exports = function(app, passport) {
   app.post('/login', passport.authenticate('local-login', { failureFlash : "Invalid Shit" }), sessions.login);
   app.get('/profile', sessions.currentUser);
   app.get('/logout', sessions.logout);
-  app.get('/login', function(req, res) {
-    res.send('loggin in bitches', { message: req.flash('loginMessage') }); 
-  });
-  app.get('/signup', function(req, res) {
-    res.send('signing up bitch', { message: req.flash('signupMessage') });
-  });
+  // app.get('/login', function(req, res) {
+  //   res.send('loggin in bitches', { message: req.flash('loginMessage') }); 
+  // });
+  // app.get('/signup', function(req, res) {
+  //   res.send('signing up bitch', { message: req.flash('signupMessage') });
+  // });
 
   // AWS 
   var api = require('../controllers/api');

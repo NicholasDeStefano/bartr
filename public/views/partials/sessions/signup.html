@@ -5,6 +5,7 @@
 <div id="login">
   <h1>Welcome To Bartr</h1>
   <form ng-model="user">
+    <input type="text" placeholder="Username*" class="login-input" name="username" ng-model="user.username" ng-minlength=3 required /><br>
     <input type="email" placeholder="Email*" class="login-input" name="email" ng-model="user.email" ng-minlength=3 required /><br>
     <input type="password" name="password" class="login-input" placeholder="Password*" ng-model="user.password" required>
     <br>  
@@ -13,6 +14,8 @@
     <button class="signup-btn" ng-click="signup(user)">Sign Up</button><br> 
     <span>Already a member?</span><em><a href="/#/login">Click here</a></em>
   </form>
+
+  <a href="/auth/twitter">Sign in with Twitter</a>
 
 </div>
 

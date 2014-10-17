@@ -2,7 +2,7 @@
 
 // load all the things we need
 var LocalStrategy   = require('passport-local').Strategy;
-
+var TwitterStrategy = require('passport-twitter').Strategy;
 // load up the user model
 var User          = require('../models/user');
 
@@ -40,7 +40,7 @@ module.exports = function(passport) {
         passReqToCallback : true // allows us to pass back the entire request to the callback
     },
     function(req, email, password, done) {
-
+        console.log(req.body);
         // asynchronous
         // User.findOne wont fire unless data is sent back
         process.nextTick(function() {
@@ -62,6 +62,7 @@ module.exports = function(passport) {
                 var newUser            = new User();
 
                 // set the user's local credentials
+                newUser.local.username = req.body.username;
                 newUser.local.email    = email;
                 newUser.local.password = newUser.generateHash(password);
 
@@ -107,5 +108,17 @@ module.exports = function(passport) {
         });
 
     }));
+
+    passport.use(new TwitterStrategy({
+        consumerKey: 'rT2QzyISD4RiV5CMYihogWoZC',
+        consumerSecret: 'K6Bcdsf8ZVzV8ZHFQALSHaGsKMiXv02dhy5IJEMM3QUiyeWshM',
+        callbackURL: "http://www.letsbartr.com/#/profile"
+    },
+    function(token, tokenSecret, profile, done){
+        console.log("token", token);
+        console.log("tokenSecret", tokenSecret);
+        console.log("profile", profile);
+    }
+    ))
 
 };
