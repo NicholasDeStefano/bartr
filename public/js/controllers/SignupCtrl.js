@@ -5,7 +5,7 @@
   app.controller('SignupCtrl', function($scope, $http, $location) {
     
     $scope.page = {};
-    $scope.page.wrongShit = "false";  
+    $scope.page.wrongShit = false;  
 
     $scope.signup = function(user) {
       user.email = user.email.toLowerCase();

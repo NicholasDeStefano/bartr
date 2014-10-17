@@ -4,12 +4,8 @@
 
   app.controller('LoginCtrl', function($rootScope, $scope, $http, $location) {
     console.log($scope);
-    $http.get("/login").success(function (data) {
-      console.log(data);
-    });
-
     $scope.page = {};
-    $scope.page.wrongShit = "false";
+    $scope.page.wrongShit = false;
 
     $scope.login = function (user) {
       if(user){
