@@ -1,6 +1,6 @@
 'use strict';
 
-var app = angular.module('bartr', ['ngRoute', 'ngResource', 'angularFileUpload', 'ngTouch']);
+var app = angular.module('bartr', ['ngRoute', 'ngResource', 'angularFileUpload']);
 
 app.config(function ($routeProvider) {
   $routeProvider
