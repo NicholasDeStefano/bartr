@@ -20,7 +20,7 @@
         <input type="text" class="form-control" id="caption" name="caption" placeholder="ex: Two 300 levels tickets to Queen B / J @ MetLife 06/11." ng-model="post.caption" required>
       </div>
       <p class="pull-right">* required</p><br>
-      <a type="submit" ng-click="submitPost(post)" class="btn btn-default">Upload</a>
+      <a ng-click="submitPost(post)" class="btn btn-default">Upload</a>
       <a href='/#/app' class="btn btn-default">Nevermind</a>
     </form>
     <h2 ng-show="page.upProg">Progress: {{page.progress}}%</h2>
