@@ -56,7 +56,7 @@
             })
         }
         $scope.submitPost = function(post) {
-            console.log("post", post);
+            $scope.page.mobileTest = "mobile test worked.";
             if(!post.title || !post.caption || !$scope.image){
                 $scope.page.error = "You need a title, image, and caption.";
             } else {
