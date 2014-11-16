@@ -25,6 +25,8 @@
             delete file.name;
             file['name'] = name;
             $http.get('/api/s3Policy?mimeType='+ file.type).success(function(response){
+                $scope.page.mobileTest = "get request is being made";
+
                 var s3Params = response;
                 $scope.image = $upload.upload({
                     url: 'https://bartr-imgs.s3.amazonaws.com/',
@@ -54,6 +56,8 @@
                         $location.path('/app');
                     })
                 }).error(function(){
+                $scope.page.mobileTest = "Something went wrong.";
+
                     $scope.page.wrong = "Something went wrong...";
                 })
             })
