@@ -124,7 +124,7 @@
 
         $scope.onFileSelect = function ($files) {
             $scope.image = $files[0];
-            $scope.page.mobileTest = "an image has been uploaded";
+            $scope.page.mobileTest = $files;
         };
             
         
