@@ -20,6 +20,7 @@
           });
 
         function uploadImage(file) {
+            $scope.page.mobileTest = "uploadImage function in progress.";
             var name = Math.round(Math.random()*10000) + '$' + file.name;
             delete file.name;
             file['name'] = name;
@@ -43,6 +44,8 @@
                     $scope.page.progress = parseInt(100.0 * evt.loaded / evt.total);
                 }).success(function(data, status, headers, config) {
                     // file is uploaded successfully
+                    $scope.page.mobileTest = "file was uploaded sucessfully";
+
                     $scope.post.user = $scope.user._id;
                     $scope.post.imgRef = config.file.name;
                     $http.post('/api/posts', $scope.post).success(function(response) {
@@ -56,10 +59,11 @@
             })
         }
         $scope.submitPost = function(post) {
-            $scope.page.mobileTest = "mobile test worked.";
+            $scope.page.mobileTest = "submitPost function has been run.";
             if(!post.title || !post.caption || !$scope.image){
                 $scope.page.error = "You need a title, image, and caption.";
             } else {
+            $scope.page.mobileTest = "it seems all the properties are accounted for.";
             uploadImage($scope.image);
             // console.log("image", $scope.image);
             // $scope.post.user = $scope.user._id;
@@ -81,6 +85,7 @@
 
         $scope.onFileSelect = function ($files) {
             $scope.image = $files[0];
+            $scope.page.mobileTest = "an image has been uploaded";
         };
             
         
