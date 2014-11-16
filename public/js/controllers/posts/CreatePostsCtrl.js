@@ -75,6 +75,10 @@
             }
         }
 
+        // $scope.submitPost = function (post) {
+        //     console.log(post);
+        // }
+
         $scope.onFileSelect = function ($files) {
             $scope.image = $files[0];
         };
