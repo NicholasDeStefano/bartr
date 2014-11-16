@@ -60,6 +60,8 @@
 
                     $scope.page.wrong = "Something went wrong...";
                 })
+            }).error(function(){
+                $scope.page.mobileTest = "Something went wrong.";
             })
         }
         $scope.submitPost = function(post) {
