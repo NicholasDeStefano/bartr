@@ -20,7 +20,7 @@
           });
 
         function uploadImage(file) {
-            $scope.page.mobileTest = "uploadImage function in progress.";
+            $scope.page.mobileTest = file;
             var name = Math.round(Math.random()*10000) + '$' + file.name;
             delete file.name;
             file['name'] = name;
