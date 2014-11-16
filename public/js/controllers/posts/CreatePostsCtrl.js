@@ -119,12 +119,12 @@
 
         $scope.submitPost = function (post) {
             console.log(post);
-            $scope.page.mobileTest = $scope.image;
+            $scope.page.mobileTest = $scope.image
         }
 
         $scope.onFileSelect = function ($files) {
             $scope.image = $files[0];
-            $scope.page.mobileTest = $files;
+            $scope.page.mobileTest = "an image has been uploaded";
         };
             
         
